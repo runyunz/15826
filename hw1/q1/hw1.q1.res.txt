@@ -1,0 +1,137 @@
+runyun - Fall 2013
+-----------------------------------------
+Q2: PARSING
+
+SEE parse.py
+-----------------------------------------
+Q3: LOADING
+
+create table movies(productId, userId, helpfulness, score, time);
+.import movies-short.csv movies
+-----------------------------------------
+Q4: MOVIE SIZE
+
+select count(distinct productID) from movies;
+253059
+-----------------------------------------
+Q5: POPULAR MOVIE
+
+select productID, max(cnt) from (select productID, count(*) as cnt from movies group by productID);
+B002QZ1RS6|957
+-----------------------------------------
+Q6: ACTIVE REVIEWER
+
+select userID, max(cnt) from (select userID, count(*) as cnt from movies group by userID);
+A16CZRQL23NOIW|10793
+-----------------------------------------
+Q7: TOP MOVIES
+
+select productID from movies where time > 100 order by score limit 5;
+B003AI2VGA
+B00004CQT3
+B000063W1R
+B000063W1R
+B000063W1R
+-----------------------------------------
+Q7&Q8: RUNNING TIME
+
+time sqlite3 movies.db 'select productID from movies where time > 100 order by score limit 5;'
+[without index]
+B003AI2VGA
+B00004CQT3
+B000063W1R
+B000063W1R
+B000063W1R
+
+real	0m7.104s
+user	0m6.877s
+sys	0m0.205s
+CPU Time: user 6.911536 sys 0.355804
+
+[with index]
+B003AI2VGA
+B00004CQT3
+B000063W1R
+B000063W1R
+B000063W1R
+
+real	0m0.016s
+user	0m0.002s
+sys	0m0.004s
+CPU Time: user 0.000144 sys 0.000504
+-------------------------------------------
+Q8: CREATE INDEX
+
+create index prdIDX on movies(productID);
+create index scrIDX on movies(score);
+--------------------------------------------
+Q9: EXPLAIN SQL
+
+explain select productID from movies where time > 100 order by score limit 5;
+[without index]
+0|Trace|0|0|0||00|
+1|OpenEphemeral|1|3|0|keyinfo(1,BINARY)|00|
+2|Integer|5|1|0||00|
+3|Integer|100|2|0||00|
+4|Goto|0|31|0||00|
+5|OpenRead|0|2|0|5|00|
+6|Rewind|0|22|0||00|
+7|Column|0|4|3||00|
+8|Le|2|21|3|collseq(BINARY)|6a|
+9|Column|0|0|5||00|
+10|MakeRecord|5|1|3||00|
+11|Column|0|3|6||00|
+12|Sequence|1|7|0||00|
+13|Move|3|8|1||00|
+14|MakeRecord|6|3|4||00|
+15|IdxInsert|1|4|0||00|
+16|IfZero|1|19|0||00|
+17|AddImm|1|-1|0||00|
+18|Goto|0|21|0||00|
+19|Last|1|0|0||00|
+20|Delete|1|0|0||00|
+21|Next|0|7|0||01|
+22|Close|0|0|0||00|
+23|OpenPseudo|2|3|1||00|
+24|Sort|1|29|0||00|
+25|Column|1|2|3||00|
+26|Column|2|0|5||20|
+27|ResultRow|5|1|0||00|
+28|Next|1|25|0||00|
+29|Close|2|0|0||00|
+30|Halt|0|0|0||00|
+31|Transaction|0|0|0||00|
+32|VerifyCookie|0|14|0||00|
+33|TableLock|0|2|0|movies|00|
+34|Goto|0|5|0||00|
+
+[with index]
+0|Trace|0|0|0||00|
+1|Noop|0|0|0||00|
+2|Integer|5|1|0||00|
+3|Integer|100|2|0||00|
+4|Goto|0|19|0||00|
+5|OpenRead|0|2|0|5|00|
+6|OpenRead|2|170953|0|keyinfo(1,BINARY)|00|
+7|Rewind|2|16|3|0|00|
+8|IdxRowid|2|3|0||00|
+9|Seek|0|3|0||00|
+10|Column|0|4|4||00|
+11|Le|2|15|4|collseq(BINARY)|6a|
+12|Column|0|0|6||00|
+13|ResultRow|6|1|0||00|
+14|IfZero|1|16|-1||00|
+15|Next|2|8|0||00|
+16|Close|0|0|0||00|
+17|Close|2|0|0||00|
+18|Halt|0|0|0||00|
+19|Transaction|0|0|0||00|
+20|VerifyCookie|0|12|0||00|
+21|TableLock|0|2|0|movies|00|
+22|Goto|0|5|0||00|
+
+reason: 
+index scan is faster than table scan.
+
+
+

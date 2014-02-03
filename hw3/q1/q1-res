@@ -1,0 +1,23 @@
+Q0: Clean up directory
+---------------------------------------
+Q1: Create directory and upload dataset
+---------------------------------------
+Q2: Compile WordCount
+---------------------------------------
+Q3: Run WordCount and report the number of unique words
+Number unique words
+       0
+---------------------------------------
+Q4: Run NGram and Output
+---------------------------------------
+Q5: Report number of bigrams(n=2) occur at least 100 times
+Number of trigrams(n=2) occur at least 100 times
+       0
+---------------------------------------
+Q6: List the top 20 most common bigrams and the number of times they occur
+---------------------------------------
+Q7: Report number of trigrams(n=3) occur at least 100 times
+Number of trigrams(n=3) occur at least 100 times
+       0
+---------------------------------------
+Q8: List the top 20 most common trigrams and the number of times they occur

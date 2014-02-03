@@ -1,0 +1,43 @@
+Author: Runyun Zhang, Fangyu Gao
+
+We impliment the task using pl/pgsql, every sql file contains a defined function. To use the function, we have to register the function first by passing the sql file to the psql console.
+
+Do
+    make
+to see degree distribution demo.
+
+TO INSTALL:
+    make install
+will register the defined function in the package needed for demo.
+
+USAGE
+    psql < your_script.sql
+in which can call our functions by using "select * from function_name(arg)", after register the function by using "psql < function_name.sql"
+
+
+
+The common function list is as below:
+
+Function name					Description
+void assign_matrix(A, B)			A = B
+void assign_matrix_column(A, j, b)		A(:, j) = b
+void assign_matrix_value(A, i, j, x)		A(i, j) = x
+void assign_vector(a, b)			a = b
+void assign_vector_value(a, i, x)		a(i) = x
+void create_identity_matrix(A, n)		A = I(n*n)
+void create_matrix(A)				A = 0
+void create_vector(b)				b = 0
+double get_matrix_value(A, i, j)		A(i, j)
+void matrix_corp_column(A, B, m, n)		A = B(:, m:n)
+void matrix_multiply_matrix(A, B, C)		A = B * C
+void matrix_multiply_vector(a, A, b)		a = A * b
+int matrix_size(An*n)				n
+void matrix_transpose(A, B)			A = B’
+int vector_length(bn)				length(b)
+void vector_minus(a, b, c)			a = b - c
+double vector_multiply_vector(a, b)		a’ * b
+void vector_scale(a, b, lambda)			a = lambda * b
+
+All the matrix tables are defined as "matrix(matrix_row integer, matrix_column integer, matrix_value double precision)".
+All the vector tables are defined as "vector(vector_row integer, vector_value double precision)".
+

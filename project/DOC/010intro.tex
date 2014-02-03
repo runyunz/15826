@@ -1,0 +1,25 @@
+% {\em
+% \bit
+% \item
+% what is the problem
+% \item
+% what are the applications
+% \eit
+% }
+% {\small \em Specify the problem; Give the motivation; 
+% List your main contributions}
+
+The problem we want to solve is the following:
+\bit
+\item GIVEN: a collection of graph datasets from various scenarios
+\item FIND: 'strange' datasets which have different behaviors versus the majority datasets
+\item to IMPLEMENT: a set of powerful graph mining methods in SQL on RDBMS, including {\em degree distribution, page rank, connected components, radius, eigenvalues/singular values, Belief Propagation, Count of Triangles, etc.}
+\eit
+
+Data, especially those containing valuable information, are stored in Database. Therefore, it is reasonable that people wish to perform data mining directly within RDBMS. In addition, RDBMS offers powerful support from all perspective, be it sophisticated data management mechanism, fine-tuned query optimization, and easy-to-use interface language: SQL. However, the challenge is that it is a unnatural way to implement graph query algorithms using ralational query. Therefore, our goal is to address this problem so that we can perform graph mining with full support of RDMS and find interesting patterns of various graph datasets. 
+
+The contributions of this project are the following:
+\bit
+\item Our implementation of graph queries algorithms in SQL provide a native way for graph mining to take advantage of RDBMS
+\item Based on our implementated algorithm, we can perform broad spectrum graph mining on a variety of graph dataset efficiently
+\eit

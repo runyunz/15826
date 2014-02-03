@@ -1,0 +1,62 @@
+\begin{thebibliography}{10}
+
+\bibitem{Brin:1998:ALH:297810.297827}
+Sergey Brin and Lawrence Page.
+\newblock The anatomy of a large-scale hypertextual web search engine.
+\newblock {\em Comput. Netw. ISDN Syst.}, 30(1-7):107--117, April 1998.
+
+\bibitem{Flajolet:1985:PCA:5212.5215}
+Philippe Flajolet and G.~Nigel Martin.
+\newblock Probabilistic counting algorithms for data base applications.
+\newblock {\em J. Comput. Syst. Sci.}, 31(2):182--209, September 1985.
+
+\bibitem{KangCF11}
+U.~Kang, Duen~Horng Chau, and Christos Faloutsos.
+\newblock Mining large graphs: Algorithms, inference, and discoveries.
+\newblock In {\em ICDE}, pages 243--254, 2011.
+
+\bibitem{KangMF12}
+U.~Kang, B.~Meeder, E.~Papalexakis, and C.~Faloutsos.
+\newblock Heigen: Spectral analysis for billion-scale graphs.
+\newblock {\em Knowledge and Data Engineering, IEEE Transactions on}, PP(99):1,
+  2012.
+
+\bibitem{KangTSLF12}
+U.~Kang, Hanghang Tong, Jimeng Sun, Ching-Yung Lin, and Christos Faloutsos.
+\newblock Gbase: an efficient analysis platform for large graphs.
+\newblock {\em VLDB J.}, 21(5):637--650, 2012.
+
+\bibitem{Kang:2011:HMR:1921632.1921634}
+U.~Kang, Charalampos~E. Tsourakakis, Ana~Paula Appel, Christos Faloutsos, and
+  Jure Leskovec.
+\newblock Hadi: Mining radii of large graphs.
+\newblock {\em ACM Trans. Knowl. Discov. Data}, 5:8:1--8:24, February 2011.
+
+\bibitem{KangTF11}
+U.~Kang, Charalampos~E. Tsourakakis, and Christos Faloutsos.
+\newblock Pegasus: mining peta-scale graphs.
+\newblock {\em Knowl. Inf. Syst.}, 27(2):303--325, 2011.
+
+\bibitem{koutra2011unifying}
+Danai Koutra, Tai-You Ke, U~Kang, Duen Horng~Polo Chau, Hsing-Kuo~Kenneth Pao,
+  and Christos Faloutsos.
+\newblock Unifying guilt-by-association approaches: Theorems and fast
+  algorithms.
+\newblock In {\em Proceedings of the ECML/PKDD 2011}, 2011.
+
+\bibitem{pavlo09}
+Andrew Pavlo, Erik Paulson, Alexander Rasin, Daniel~J. Abadi, David~J. DeWitt,
+  Samuel Madden, and Michael Stonebraker.
+\newblock A comparison of approaches to large-scale data analysis.
+\newblock In {\em SIGMOD '09: Proceedings of the 35th SIGMOD international
+  conference on Management of data}, pages 165--178, New York, NY, USA, 2009.
+  ACM.
+
+\bibitem{4781156}
+C.E. Tsourakakis.
+\newblock Fast counting of triangles in large real networks without counting:
+  Algorithms and laws.
+\newblock In {\em Data Mining, 2008. ICDM '08. Eighth IEEE International
+  Conference on}, pages 608--617, 2008.
+
+\end{thebibliography}

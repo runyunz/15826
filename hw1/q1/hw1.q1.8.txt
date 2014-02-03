@@ -1,0 +1,2 @@
+create index prdIDX on movies(productID);
+create index scrIDX on movies(score);

@@ -1,0 +1,1 @@
+select userID, max(cnt) from (select userID, count(*) as cnt from movies group by userID);

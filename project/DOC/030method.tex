@@ -1,0 +1,371 @@
+\subsection{Task List}
+Our goal is to implement as many tasks from the task list as possible, apply them on as many of the datasets as applicable, and study the results.
+
+The task list includes following tasks:
+\bit
+\item Task 1: Degree distribution
+\item Task 2: PageRank
+\item Task 3: Connected components
+\item Task 4: Radius and Diameter
+\item Task 5: Eigenvalues
+\item Task 6: Belief Propagation
+\item Task 7: Count of Triangles
+\item Innovation Tasks: Directed, Undirected, and Weighted Graph
+\eit
+
+\subsection{Implementation Choice}
+We use PL/pgSQL for implementation. PL/pgSQL is the procedural language for the PostgreSQL database system. PL/pgSQL extends the functions of SQL by adding control structures(e.g. condition and loop), and thus supporting complex computations. \\
+We consider implementing User-defined Functions(UDFs) and Stored Procedures(SPs) using SQL and register them in the DBMS server, which is a good practice for traditional OLTP to improve performance. For OLAP system and data mining tasks, though communication cost is no longer the main concern, maintaining a ready-to-use data mining package at DB server is still helpful to make data analysis easier. \\
+Another reason for choosing PL/pgSQL that is is native to the DB system. PL/pgSQL inherits all user-defined types, functions, and operators from PostgreSQL, so that we can take advantage of the powerful feature of DBMS system itself. 
+
+\subsection{Basic Operation}
+According to the Pegasus paper\cite{KangTF11}, most of the tasks can be represented as performing iterations on a generalized matrix-vector multiplication. Listing \ref{gc} gives the SQL code of this general implementation:
+\begin{lstlisting}[caption=General Procedure, label=gc, language=SQL, numbers=left, numberstyle=\tiny, breaklines, tabsize=2, frame=single]
+	UPDATE vector
+	SET val = new_vector.val FROM
+	(SELECT matrix.row, aggregate(matrix.val*vector.val)
+		FROM matrix, vector
+		WHERE matrix.col = vector.row
+		GROUP BY matrix.row) new_vector
+	WHERE vector.row = new_vector.row
+\end{lstlisting}
+In addition, we find it useful to implement a set of basic operations separately for code re-usability. For example, UDF $node\_lst$ is used for multiple times to compute the node list given the edge list.
+\begin{verbatim}
+	INSERT INTO node_lst
+		SELECT n_from AS node FROM adj_lst 
+		UNION DISTINCT 
+		SELECT n_to AS node FROM adj_lst ORDER BY node;
+\end{verbatim}
+
+\subsection{Task 1: Degree Distribution}
+\subsubsection{Method Description}
+The major work for degree distribution task contains two steps. First, count the degree for each node(both in-degree and out-degree for directed graph). Second, for data visualization purpose(i.e. to discover power law distribution), we perform a following data processing step to count and calculate the number of nodes having the same in/out-degree. \\
+
+\subsubsection{SQL Implementation}
+We give the SQL implementation as follows:
+\begin{lstlisting}[caption=Degree Distribution, label=dd, language=SQL, numbers=left, numberstyle=\tiny, breaklines, tabsize=2, frame=single, keepspaces=false]
+	CREATE degree
+		SELECT node, count(node) AS degree 
+		FROM edge_lst 
+		GROUP BY node;
+	SELECT degree, count(*) AS count 
+	FROM degree
+	GROUP BY degree;
+\end{lstlisting}
+
+\subsection{Task 2: PageRank}
+\subsubsection{Method Description}
+The famous PageRank algorithm is originally invented by Google for search result ordering. The algorithm ranks web pages by adopting the rule that a web page having a lot of important web pages link to will also get a high score. \\
+Using the power method, the algorithm can be described as iteratively multiplication on rank vector by adjacency matrix. Considering the damping points(points with no out-degree) cases, we introduce the damping factor $d$(by default \(d=0.85\)) to enable fly－out. With probability \(1-d\), random walk will fly out randomly to a new node.\\
+The equation of PageRank can be represented as follows:
+\[M=dA^T + \frac{1-d}{N}I,\ p=Mp\]
+where $p$ is the PageRank vector, $A$ is the normalized adjacency matrix(i.e. \(\sum(row) = 1\)), and $d$ is the damping factor.\\
+Considering the scalability of the algorithm, we take advantage of the sparcity of matrix and computing with only the edges in the adjacency list.Concretely, we compute \[p_{next} = Mp_{now} = dA^Tp_{now} + \frac{1-d}{N}\mathbf{1}^Tp_{now}\] every iteration, rather than building up the full matrix and add constant to every elements at first time. \\
+We provide algorithm \ref{pr} for a brief description.
+\begin{algorithm}[htbp]
+	\SetAlgoLined
+	load data in adjacency list\;
+	build up transposed adjacency matrix $A^T$ given the adjacency list\;
+	initilize PageRank vector $V$\;
+	\For{$i\leftarrow 1$ \KwTo $n$}{
+	update $p$ with \(dA^Tp_{now} + \frac{1-d}{N}\sum{p_{now}}\)\;}
+	\caption{PageRank}
+	\label{pr}
+\end{algorithm}
+
+\subsubsection{SQL Implementation}
+To compute PageRank, we first need a intialized rank vector setting every node to the uniform distribution probability(1/count of node).
+We implement User-Defined Function $pr\_rank$ to perform the job.
+\begin{verbatim}
+	EXECUTE 
+	'SELECT CAST(1 AS double precision)/count(*) 
+	FROM node_lst' INTO n;
+
+	EXECUTE
+	'INSERT INTO pr_rank 
+		SELECT node AS v_row, $1 AS v_val 
+		FROM node_lst' USING n;
+\end{verbatim}
+Second, we compute the normalized transposed adjacency matrix $A^T$ using UDF $adj\_matrix\_trans$.
+\begin{verbatim}
+INSERT INTO adj_matrix 
+	SELECT n_to AS m_row, n_from AS m_col, 
+		CAST(1 as double precision)/degree.degree AS m_val 
+	FROM adj_lst, degree
+	WHERE adj_lst_weighted.n_from = degree_weighted.node;
+\end{verbatim}
+Then we update the PageRank iteratively as follows. The first EXECUTE clause compute the constant and the second EXECUTE perform the general procedure of matrix-vertex multiplication.
+\begin{lstlisting}[caption=PageRank, label=pr, language=SQL, numbers=left, numberstyle=\tiny, breaklines, tabsize=2, frame=single, keepspaces=false]
+	EXECUTE 'SELECT count(*) FROM node_lst' INTO n;
+	
+	FOR i IN 1..iter LOOP
+		EXECUTE 'SELECT SUM(v_val) * (1 - $1)/$2 FROM pr' INTO y USING d, n;
+		EXECUTE
+		'UPDATE pr
+		SET v_val = $1 * p1.v_val + $2 FROM 
+			(SELECT adj_matrix.m_row AS v_row, SUM(adj_matrix.m_val * pr.v_val) AS v_val
+			FROM adj_matrix, pr
+			WHERE adj_matrix.m_col = pr.v_row
+			GROUP BY adj_matrix.m_row) p1
+		WHERE pr.v_row = p1.v_row' USING d, y;
+	END LOOP;
+\end{lstlisting}
+
+\subsection{Task 3: Connected Component}
+\subsubsection{Method Description}
+The main idea of Connected Component is that each node maintains and updates its connected component among the connected components from its neighbors. \\
+To start with, we set the connected component to each node itself. For each iteration, every node receive a list of connected components from its neighbor node, then it pick the smallest node id from the list as well as its current connected component, and keep that node id as the new connected component. \\
+The algorithm is described as follows.
+\begin{algorithm}[htbp]
+	\SetAlgoLined
+	load data into adjacency list $E$\;
+	create the connected component list $C$\;
+	initialize $C$ by setting connected component to each node itself\;
+	\For{$i\leftarrow 1$ \KwTo $n$}{
+		\(C(i) = min(C(i), C_{(i,j) \in E}(C(j))\)\;}
+	\caption{Connected Component}
+	\label{cc}
+\end{algorithm}
+
+\subsubsection{SQL Implementation}
+The main body of connected component algorithm is also a varient of basic operation, where the minumum function serve as the aggregate function.
+\begin{lstlisting}[caption=Connected Component, label=cc, language=SQL, numbers=left, numberstyle=\tiny, breaklines, tabsize=2, frame=single, keepspaces=false]
+	UPDATE conn_comp
+	SET comp = n1.comp FROM 
+		(SELECT adj_lst.n_from AS node, MIN(conn_comp.comp) AS comp
+		FROM adj_lst, conn_comp
+		WHERE adj_lst.n_to = conn_comp.node
+		GROUP BY adj_lst.n_from) n1
+	WHERE conn_comp.node = n1.node;
+\end{lstlisting}
+In addition, we also keep track of the size of Global Connected Component(GCC). In this way, we are able to stop the iteration once its value stops changing. \\
+Here are the detailed implementation:
+\begin{verbatim}
+	EXECUTE 
+	'SELECT count(*) AS gcc_count 
+	FROM conn_comp 
+	GROUP BY comp 
+	ORDER BY gcc_count DESC 
+	LIMIT 1' INTO gcc_count;
+
+	IF gcc_count = gcc_last THEN
+		EXIT;
+	END IF;
+
+	EXECUTE 
+	'INSERT INTO comp_track VALUES($1, $2)' USING i, gcc_count;
+
+	gcc_last = gcc_count;
+\end{verbatim}
+
+\subsection{Task 4: Radius}
+\subsubsection{Method Description}
+In this case, we refer to HADI algorithm\cite{Kang:2011:HMR:1921632.1921634}. Concretely, we first set up 32 Flajolet-Martin bit string of length 32 for each node. Flajolet-Martin algorithm\cite{Flajolet:1985:PCA:5212.5215} approximates the number of unique objects in a stream or a database in one pass. Then during every iteration, we perform bit-wise OR among the bit-string list of the node together with the bit-string list of its neighbors. \\
+We maintain a copy of the bit-string list to keep track of the result. As long as the bit-string for a node stops changing, we insert that node to the radius list with its radius as the number of current iteration. And we stop tracking that node by deleting it from the check list. If the check list is empty, then we finish the looping and check the radius list. All the nodes are supposed to be in the list now. And the maximum radius in the list will serve as the diameter of the whole graph.\\
+To simplify the process, we add a self-loop for each node(i.e. input all (i, i) into edge list), which means we can perform bit-wise operation directly on the query result on neighbor nodes from edge list. \\
+In algorithm \ref{rd}, we provide detailed description in terms of pseudo code.
+\begin{algorithm}[htbp]
+	\SetAlgoLined
+	load data into adjacency list\;
+	create and initialize the fm\_bit string list for each node\;
+	create and initialize the check list from bit string list\;
+	create the radius list\;
+	\While{check list is not empty}{
+		perform bit-or operation on the bit string list of the node and its neighbors\;
+		\If{the new bit string = the old bit string}
+			{
+				add the node into the radius list\;
+				remove the node from the check list\;
+			} 
+		update the check list with the new bit strings\;
+		}
+	diameter = max(radius list)\;
+	\caption{Radius and Diameter}
+	\label{rd}
+\end{algorithm}
+
+\subsubsection{SQL Implementation}
+The first thing we do is to add self-loop via UDF $self\_loop$.
+\begin{verbatim}
+	INSERT INTO adj_lst 
+		SELECT node as n_from, node as n_to FROM node_lst;
+\end{verbatim}
+After that, we generate the 32 Flajolet-Martin bit string list for each node.
+\begin{verbatim}
+	FOR i IN 1..n LOOP
+		FOR j IN 1..32 LOOP
+			arr[j] := 2 ^ floor(random()*32);
+		END LOOP;
+		EXECUTE 'INSERT INTO bit_str VALUES($1, $2)' using CAST(i as bigint), arr;
+	END LOOP;
+\end{verbatim}
+Then we use the basic operation to update the bit string for each node using Bit-OR function as the aggregate funciton, which is provided by postgres here.
+\begin{lstlisting}[caption=Radius, label=rd, language=SQL, numbers=left, numberstyle=\tiny, breaklines, tabsize=2, frame=single, keepspaces=false]
+	UPDATE bit_str
+	SET str = str_new.str
+	FROM(
+		SELECT adj_lst.n_from AS n_from, bit_or(bit_str.str)
+		FROM adj_lst, bit_str
+		WHERE adj_lst.n_to = bit_str.node
+		GROUP BY adj_lst.n_from) str_new
+	WHERE bit_str.node = str_new.n_from;
+\end{lstlisting}
+Finally, we repeat the process of removing stable node from check list and stop the iteration until the list is empty.
+\begin{verbatim}
+	TRUNCATE temp;
+	INSERT INTO temp
+		SELECT bit_str_check.node FROM bit_str_check, bit_str 
+			WHERE bit_str_check.node = bit_str.node AND bit_str_check.str=bit_str.str;
+
+		EXECUTE 'INSERT INTO node_radius (SELECT node, $1 FROM temp)' using round;
+
+		DELETE FROM bit_str_check WHERE node IN 
+		(SELECT node FROM temp);
+
+	SELECT COUNT(*) FROM bit_str_check into count;
+	IF count = 0 THEN
+		EXIT;
+	END IF;
+
+	UPDATE bit_str_check 
+	SET str=bit_str.str
+	FROM bit_str
+	WHERE bit_str_check.node = bit_str.node;
+\end{verbatim}
+
+
+\subsection{Task 5: Eigenvalues}
+\subsubsection{Method Description}
+We implemented the Lanczos-NO algorithm in the paper “HEigen: Spectral Analysis for Billion-Scale Graphs”\cite{KangMF12}, the algorithm is described as follows.\\
+\begin{algorithm}[htbp]
+	\SetAlgoLined
+	generate a vector with size equal to the column number of adjacency matrix; let it be the initial base $v_i$\;
+	\For{$i\leftarrow 1$ \KwTo $n$}{
+		Find a new basis vector\;
+		Orthogonalize against two previous  basis vectors\;
+		build tri-diagonal matrix\;
+		Eigen decomposition of the tri-diagonal matrix\;
+		selectively re-orthogonalize the new basis vector\;
+		}
+	build the last tri-diagonal matrix\;
+	Eigen decompose the last tri-diagonal matrix\;
+	compute the top k diagonal elements\;
+	compute eigenvectors\;
+	\caption{Eigenvalues}
+	\label{ev}
+\end{algorithm}
+
+\subsubsection{SQL Implementation}
+Most of the operations in this task are matrix multiplications and vector multiplication. The implement of these are the same as before. 
+\lstinputlisting[caption=Eigenvalues, language=SQL, numbers=left, numberstyle=\tiny, breaklines, tabsize=2, frame=single]{CODE/eigen.sql}
+
+\subsection{Task 6: Belief Propagation}
+\subsubsection{Method Description}
+Belief Propagation is a commonly-used message passing algorithm to perform inference on graphical model, such as Bayesian networks(directed graph) and Markov random fields(undirected graph). \\
+As for algorithm, we implemented FastBP\cite{koutra2011unifying}, a fast approximate BP algorithm guaranteed to converge. The equation we refer to are as follows.
+\[M=aD − c^{′}A,\ b^{t+1}=Mb^t,\ belief=\sum(b)\]
+\[D=\sum_j{A_{ij}}\ and\ D_{ij}=0\ for\ i \ne j\]
+\[c_1 = 2+\sum_i{d_{ii}},\ c_2=\sum_i{d_{ii}}^2-1,\ h_h < \sqrt{\frac{-c_1+\sqrt{c_1^2+4c_2}}{8c_2}}\]
+\[a=\frac{4h_h^2}{1-4h_h^2},\ c^{'}=\frac{2h_h}{1-4h_h^2}\]
+The implementation of Belief Propagation algorithm is similar to PageRank. We sum over the result of vector after each iteration to get the final approximate of belief for each node. Also, we ultilize the sparse matrix. Instead of generating the whole matrix, we only compute the elements in the edge list as well as on the diagonal, which means great news for large-scale graph mining. \\
+The algorithm of FastBP is described as follows.
+\begin{algorithm}[htbp]
+	\SetAlgoLined
+	load data into the adjacency list, which also serves as adjacency matrix $A$here\;
+	load data into the initial belief list $b$\;
+	create and compute trace matrix $D$ from $A$\;
+	compute $c_1$, $c_2$, and $h_h$ using $D$\;
+	compute $a$ and $c^{'}$ using $h_h$ \;
+	scale $A$ and $D$ using $a$ and $-c^{'}$; union the result as the matrix $M$\;
+	create final belief list $b_{final}$; initial it using $b$\;
+	\While{$b_{final}$ does not converge}{
+		update $b$ with $Mb$\;
+		update $b_{final}$ by adding $b$\;
+		}
+	\caption{Belief Propagation}
+	\label{bp}
+\end{algorithm}
+
+\subsubsection{SQL Implementation}
+Before starting the inference process, we first compute the related parameters to be used.
+\begin{verbatim}
+	CREATE TABLE d_matrix AS
+		SELECT m_row, m_row as m_col, SUM(m_val) as m_val from adj_matrix GROUP by m_row;
+
+	EXECUTE 'SELECT SUM(m_val) + 2 from d_matrix' INTO c1; 
+	EXECUTE 'SELECT SUM(m_val^2) - 1 from d_matrix' INTO c2; 
+
+	hh = sqrt((-c1 + sqrt(c1 ^ 2 + 4 * c2)) / (8 * c2));
+	a = 4 * (hh ^ 2) / (1 - 4 * (hh ^ 2));
+	c_prime = 2 * hh / (1 - 4 * (hh ^ 2));
+
+	EXECUTE 
+	'CREATE TABLE w_matrix AS
+		(SELECT m_row, m_col, $1 * m_val AS m_val FROM adj_matrix)
+		UNION
+		(SELECT m_row, m_col, $2 * m_val AS m_val FROM d_matrix)' USING a, (-c_prime);
+\end{verbatim}
+Then we create two vectors and initiazed them with the proir belief. After that, we kick off the iteration preocess. The main body of iteration follows the basic matrix-vector multiplication paradigm.
+\begin{lstlisting}[caption=Belief Propagation, label=bp, language=SQL, numbers=left, numberstyle=\tiny, breaklines, tabsize=2, frame=single, keepspaces=false]
+	UPDATE b_vector
+	SET v_val = b_new.v_val
+	FROM(
+		SELECT m_row AS v_row, 
+		SUM(m_val * b_vector.v_val) AS v_val
+		FROM w_matrix, b_vector
+		-- FROM adj_matrix, b_vector
+		WHERE m_col = b_vector.v_row
+		GROUP BY m_row) b_new
+	WHERE b_vector.v_row = b_new.v_row;
+
+	UPDATE belief
+	SET v_val = belief.v_val + b_vector.v_val FROM b_vector
+	WHERE belief.v_row = b_vector.v_row;	
+\end{lstlisting}
+
+\subsection{Task 7: Count of Triangles}
+\subsubsection{Method Description}
+We implemented the EigenTriangle function in the paper “Fast Counting of Triangles in Large Real Networks: Algorithms and Law”\cite{4781156}. \\
+The paper proofs: The total number of triangles in a graph is proportional to the sum of cubes of eigenvalues.
+\[\Delta(G) = \frac{1}{6}\sum_{i=1}^n{\lambda^3}\]
+
+\subsubsection{SQL Implementation}
+After getting the eigenvalue and eigenvector from task 5, the implementation of this task is just a few line of sql code.
+\begin{lstlisting}[caption=Count of Triangle, label=tr, language=SQL, numbers=left, numberstyle=\tiny, breaklines, tabsize=2, frame=single, keepspaces=false]
+	select matrix_row, sum((matrix_value^2) * (vector_value^3))/2
+	from matrix, vector
+	where matrix_column = vector_row
+	group by matrix_row;
+\end{lstlisting}
+
+\subsection{Innovation Tasks: Directed, Undirected, and Weighted Graph}
+As the default graph type is undirected graph, what we are trying to do for innovation is to extend the graph type to directed and weighted graph.\\
+Specifically, we extend task 1, 2, 3, 4, 6 to directed graph, and we also implement task 1, 2, 5 for weighted graph.\\
+Here we will briefly discuss the methods and thoughts based on each task. And we will use them to analysize graphs in different types in the experiment section.\\
+One common UDF commonly used is $undirected\_proc$, since for some task we need to tranform a directed graph into undirected first. Actually the UDF also works for those uni-directional undirected graphs. \\
+Here we give the SQL of $undirected\_proc$ as follows.
+\begin{lstlisting}[caption=Undirected Procedure, label=up, language=SQL, numbers=left, numberstyle=\tiny, breaklines, tabsize=2, frame=single, keepspaces=false]
+	CREATE TABLE undirected_proc AS 
+		SELECT n_from, n_to FROM adj_lst 
+		UNION DISTINCT 
+		SELECT n_to, n_from FROM adj_lst;
+
+	DROP TABLE adj_lst;
+	ALTER TABLE undirected_proc RENAME TO adj_lst;
+\end{lstlisting}
+
+\begin{itemize*}
+\item {\em Degree}:
+As for directed graph, we compute in-degree and out-degree seperately. \\
+As for weighted graph, we compute weight together with degree. That means for weigted directed graph, we compute in-weight and out-weight.
+\item {\em PageRank}:
+PageRank naturally works on directed graph and no change has to make here. \\
+As for weighted graph, the change happens in the adjacency matrix normalization. In stead of using degree as measurement, here we consider the weight contribution.
+\item {\em Connected Component}:
+There are two types of connected component for directed graph. What we implement here is weakly connected component, which extend directed graph to bi-directional. Therefore, our steps are first applying UDF $undirected\_proc$, and then use the connected component method for undirected graph to compute weakly connected component for directed graph.
+\item {\em Radius}:
+The situation is similar to the former task. Radius method works directly on directed graph. As it does not make too much sense in data mining to consider the weight as distance, there is no change for weighted graph either.
+\item {\em Belief Propagation}
+As for directed graph, belief propagtion works direcly.
+\end{itemize*} 
+

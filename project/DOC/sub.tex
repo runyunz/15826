@@ -1,0 +1,26 @@
+\subsection{Task 6: Belief Propagation}
+Belief Propagation is a commonly-used message passing algorithm to perform inference on graphical model, such as Bayesian networks(directed graph) and Markov random fields(undirected graph). In phase 2, we first consider the undirected graph.\\
+As for algorithm, we implemented FastBP\cite{koutra2011unifying}, a fast approximate BP algorithm guaranteed to converge. The equation we refer to are as follows.
+\[M=aD − c^{′}A,\ b^{t+1}=Mb^t,\ belief=\sum(b)\]
+\[D=\sum_j{A_{ij}}\ and\ D_{ij}=0\ for\ i \ne j\]
+\[c_1 = 2+\sum_i{d_{ii}},\ c_2=\sum_i{d_{ii}}^2-1,\ h_h < \sqrt{\frac{-c_1+\sqrt{c_1^2+4c_2}}{8c_2}}\]
+\[a=\frac{4h_h^2}{1-4h_h^2},\ c^{'}=\frac{2h_h}{1-4h_h^2}\]
+The implementation of Belief Propagation algorithm is similar to PageRank except for two difference. The first thing is that in belief propagation, we sum over the result of vector after each iteration to get the final approximate of belief for each node. \\
+Another difference is Belief Propagation involves in a more sparse matrix than PageRank. Instead of generating the whole matrix, we only compute the element in the edge list and on the diagonal, which is a good news for large-scale graph mining. \\
+The algorithm of FastBP is described as follows. We also give the SQL code in Appendix.
+\begin{algorithm}[H]
+	\SetAlgoLined
+	load data into the edge list, which also serves as adjacency matrix $A$here\;
+	load data into the initial belief list $b$\;
+	create and compute trace matrix $D$ from $A$\;
+	compute $c_1$, $c_2$, and $h_h$ using $D$\;
+	compute $a$ and $c^{'}$ using $h_h$ \;
+	scale $A$ and $D$ using $a$ and $-c^{'}$; union the result as the matrix $M$\;
+	create final belief list $b_{final}$; initial it using $b$\;
+	\While{$b_{final}$ does not converge}{
+		update $b$ with $Mb$\;
+		update $b_{final}$ by adding $b$\;
+		}
+	\caption{Belief Propagation}
+	\label{bp}
+\end{algorithm}

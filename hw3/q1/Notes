@@ -1,0 +1,11 @@
+scp runyunz@linux.andrew.cmu.edu:15826/hadoop-1.2.1/ngram/NGram.java /Users/runyunz/Documents/15826/Homework/hw3/hw3/q1/
+scp runyunz@linux.andrew.cmu.edu:15826/hadoop-1.2.1/ngram/compile.sh /Users/runyunz/Documents/15826/Homework/hw3/hw3/q1/res/
+
+scp /Users/runyunz/Documents/15826/Homework/hw3/hw3/q1/NGram.java runyunz@linux.andrew.cmu.edu:15826/hadoop-1.2.1/ngram/NGram-1.java 
+scp /Users/runyunz/Documents/15826/Homework/hw3/hw3/q1/q1.sh runyunz@linux.andrew.cmu.edu:15826/hadoop-1.2.1/q1.sh 
+
+
+ssh ghc54.ghc.andrew.cmu.edu
+cd 15826/hadoop-1.2.1
+
+bin/hadoop fs -ls /

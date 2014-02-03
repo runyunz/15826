@@ -1,0 +1,132 @@
+Next we list the papers that each member read,
+along with their summary and critique.
+Table \ref{tab:symbols} gives a list of common symbols we used.
+
+\begin{table}[htb]
+\begin{center} 
+\begin{tabular}{|l | c | } \hline \hline 
+Symbol & Definition \\ \hline
+$V$ & Vertices of graph \\
+$E$ & Edges of graph \\ \hline
+\end{tabular} 
+\end{center} 
+\caption{Symbols and definitions}
+\label{tab:symbols} 
+ \end{table} 
+
+
+\subsection{Papers read by Emma Zhang}
+The first paper was the GBASE paper \cite{KangTSLF12}.
+\begin{itemize*}
+\item {\em Main idea}: 
+	  GBASE is a efficient, scalable platform on Hadoop designed for large-scale graph mining(e.g. perform real analysis on YahooWeb, one of the largest graphs in the world with 1.4 billion nodes, 6.6 bilion edges and 120GB in space). 
+	  
+	  The overall framework of GBASE is composed of two stages. 
+	  During the indexing stage, GBASE offers a novel graph storage method. By using a set of carefully-designed clustering, compression and blocking algorithms, the new method enjoys high performance in terms of space efficiency, running time, and machine scalability. 
+
+	  During the query stage, GBASE unifies 11 types of graph query operations by matrix-vetor multiplication, including {\em degree distribution, PageRank, Random Walk with Restart, radius estimations, discovery of connected components, LineRank} as global queries, and {\em neighborhod, induced subgraph, Egonet, K-core, cross-edges and single source shortest distances as targeted queries}. Compared with previous work(PEGASUS \cite{KangTF11}), the contribution of GBASE is that 1) node-based and edge-based queries are unified; 2) the platform supports both adjacency matrix and incidence matrix. 
+	  
+	  In a nutshell, GBASE solves problem and achieves remarkable improvement in terms of storage, algorithms and query optimization. 
+\item {\em Use for our project}:
+      In addition to the Matrix-Vector implementation on Hadoop, the author also provided the SQL version of code for targeted queries.He also points out that matrix-vector multiplication naturally corresponds to SQL join, and implementing graph mining with SQL could benefit a lot from DBMS (e.g. using optimized join alorithms). 
+
+      As for our project, we can refer to the SQL code that the paper provides and implement more queries such as {\em neighbors, induced subgraph, egonet,} etc.
+\item {\em Shortcomings}:
+      Since GBASE is built on Hadoop, the paper does not mention how graph queries performs on RDBMS. Also, as the SQL version of global graph queries({\em degree distribution, PageRank}, etc.) are not covered.
+\end{itemize*}
+
+The second paper was the HADI paper \cite{Kang:2011:HMR:1921632.1921634}.
+\begin{itemize*}
+\item {\em Main idea}:
+	   HADI(HAdoop DIameter and radii estimator) is used for computing the radii and the diameter of Petabyte-scale graphs. To compute effecitive radius and diameter in a efficient way, HADI is designed as an approximation algorithm running on parallel platform like Hadoop, and also can be adapted to parallel RDBMS. Specially, Flajolet-Martin algorithm [Flajolet and Martin 1985; Palmer et al. 2002] is adopted for counting the number of distinct elements in a multiset for its unbiased estimation and linear time performance.
+
+	   The paper then discusses the detailed implementation and optimization of HADI on Hadoop. It also explores a little on how to adapt HADI to RDBMS system and provides a sketch of potential implementation of HADI using SQL.
+
+	   Finally, by applying HADI to mining massive real graph(YahooWeb, Twitter, etc.), the author successfully observes and reports several interesting patterns on large networks. 
+\item {\em Use for our project}:
+	   One insight the paper gives is that using RDBMS for graph mining tend to be a promising direction, becuase RDBMS has a couple of advantages versus Hadoop(e.g. performance)\cite{pavlo09}. 
+
+	   Also, the paper provides a solution of implementing HADI in SQL through repeated joins of edge table, as well as a unser-defined function of related operations(bit-OR in this case). This could be a good start point for us to complete the radius query task.
+\item {\em Shortcomings}:
+       Similar to GBASE paper, HADI is fine-tuned for Hadoop platform. Therefore, for diameter/radius estimation we can explore other methods in addition to HADI which might work better on RDBMS.      
+\end{itemize*}
+
+The third paper was the FABP paper \cite{koutra2011unifying}.
+\begin{itemize*}
+\item {\em Main idea}:
+	   The paper analizes three successful methods on Guilt-by-Association: {\em Random Walk with Restarts(RWR), Semi-supervised Learning(SSL), and Belief Propagation(BP)}, and shows that all of them can be viewed as a matrix inversion problem. According to the paper, Belief propagation is recommended among three methods for its solid Bayesian basis as well as capability to deal with heterophily and multiple class-lable.
+
+	   The author then proposes FABP, an approxmimation method of standard BP, followed by a series of analyses and experiments indicating its advtanges in terms of performance, accuracy and scalability. 
+\item {\em Use for our project}:
+	   The paper provided comprensive analyses on BP and other userful graph mining algorithms like RWR. It also gives sound proof of the FABP algorithm so that we can follow its step to implement a fast BP variant on RDBMS.
+
+	   In addition to this paper, the paper \cite{KangCF11} also provide insights for the BP algorithm because it shares consisten implementation with the PEGASUS \cite{KangTF11} paper. 
+\item {\em Shortcomings}:
+       Although the paper implements FABP on hadoop and show it works very well, it does not expend effort on RDBMS implementation. We need to figure out a SQL version of code based on the general description of algorithm, and see how FABP works on RDBMS.		
+\end{itemize*}
+
+The forth paper was the benchmark paper by A. Pavlo \cite{pavlo09}.
+\begin{itemize*}
+\item {\em Main idea}:
+	   The paper focus on large-scale data analysis. After profound study on the architecture design of parallel DBMS and Map Reduce, the author defines and performs a comprensive benchmark test to support the earlier conclusions about the pros and cons of DBMS versus Map Reduce. 
+
+	   The paper compares MapReduce frame with DBMS from 7 perspectives: {\em schema support, indexing, programming model, data distribution, execution strategy, flexibility, and fault tolerance}. As for the real experiment, Haddop, a column-store DBMS and a traditional row-store DBMS are used for benchmark tests. The tests includes data processing tasks(the original Map Reduce task) and analytical tasks(Data Loading, Selection, Aggregation, Join, and UDF aggregation). 
+
+	   Combining theory analysis and experiment results, the paper concludes that parallel DBMS has its advantages that Map Reduce platform cannot replace, and future systems should take insights from both kinds of architectures.
+\item {\em Use for our project}:
+	   The paper bring up several insights to our project. First, it is promising to perform data mining within RDBMS. Second, column-store analytical DBMS worths our notice. Third, it shows how to rewrite Map Reduce programming paradigm with SQL using UDF. Finally, we can learn a lot from the benchmark test part when performing our analysis. 
+\item {\em Shortcomings}:
+       One fact the paper does not bring about is most of powerful parallel DBMS are commercial, while Hadoop is open-sourced and free,
+       which contribute to an important reason why people tend to use Hadoop for large-scale data mining.
+\end{itemize*}
+
+\subsection{Papers read by Fangyu Gao}
+The first paper was the PEGASUS paper \cite{KangTF11}.
+\begin{itemize*}
+\item {\em Main idea}:
+	   It describes why data mining in large graph is inevitable, and has to rely on MapReduce and HADOOP framework to implement large scale algorithms.
+
+       The author unifies a bunch of algorithms in a GIM-V (Generalized Iterative Matrix-Vector multiplication) primitive, making seemly unrelated algorithms like PageRank, Random Walk, Diameter Estimation, Connected Components, etc. have a uniform abstraction. 
+
+       Using the GIM-V primitive, the author easily transferred the algorithms to the HADOOP framework. Moreover, some optimization methods can be applied on HADOOP, including Block Multiplication, which brings less number to sort and data compression, Clustered Edges, which we can reuse the preprocessing result for edge clustering for various applications, Diagonal Block Iteration, which decrease the number of iterations, Node Renumbering, which swapped minimum node id o the center node id. The author proofs that the time complexity of GIM-V is $O(\frac{V+E}{M}log\frac{V+E}{M})$, while the space complexity is $O(V+E)$.
+
+       In the end, the author did experiments to show that all of the basic graph mining methods listed above are doing well, and some interesting discovers like power law of large scale datasets can be found thanks to the new technique.
+\item {\em Use for our project}:
+	   This paper introduces to me what graph mining can do. By searching new terminologies appears in this paper, I become to understand the goal of my whole project. Moreover, it provides me with the framework and basic methods to do graph mining in SQL.Furthermore, it equipped me with powerful optimization method I can use when facing large datasets.
+\item {\em Shortcomings}:
+       Some trivial problems exists in the paper such as the meaning of some variables were not made clear (e.g. $x$ in the {\em combineAll} from the same space). 
+\end{itemize*}
+
+The second paper was the HEIGN paper \cite{KangMF12}.
+\begin{itemize*}
+\item {\em Main idea}:
+	   The eigenvalues and eigenvectors are the basic of many algorithms, but existing algorithms calculating these don’t scale well on large dataset. And even billion-scale graphs are common nowadays like data from websites.
+
+	   This paper describes a method called HEigen that calculate the first several eigenvalues and eigenvectors of graph adjacency matrix and run on the MapReduce environment.
+
+	   Using this algorithm enabled the author to mining in large scale data, and discovered many important observations from large graph data. For example, spotting near cliques, triangle counting and eigen exponent.
+
+	   Although there are many eigensolvers commonly used when dataset is small, none of them is easily scalable to calculate more than one eigenvalue and eigenvector in very large dataset. The power method computes only the first eigenvector, QR algorithm is expensive due to using matrix-matrix multiplication, Lanczos-NO method outputs spurious eigenvalues because of rounding error.
+
+	   The author chose Lanczos-SO method that overcome all these shortcomings, and farther proposed parallelizing and a serial of optimization that make the algorithm run very fast on HADOOP. 
+\item {\em Use for our project}:
+	   This paper helps me review some basic mathematical knowledge for me to complete task 5 of project 2. It also teaches me some useful optimization method to work on big data.
+\item {\em Shortcomings}:
+       The algorithm is only applicable to symmetric matrix, so it can only calculate eigenvalues and eigenvectors of undirected-graphs.
+\end{itemize*}
+
+The third paper was about Fast Couting of Triangles \cite{4781156}.
+\begin{itemize*}
+\item {\em Main idea}:
+	   This paper proposed ways to fast counting of triangles in large real networks by a high accuracy way. The author used the method to count the triangles of the whole graph as well as count the triangles of a single node, which is very useful especially in social network.
+
+	   The paper introduces some non-streaming algorithms, like Brute-Force, Edge Iterator and Node Iterator, to count the number triangles in a graph exactly. Without any exception, these methods all have high computational complexity. Then, the author turns to streaming algorithms, but most of the works lack proof and justification.
+
+	   Therefore, before proposing the method, the author gives proof of the theorems he uses, including Eigen Triangle and Local Eigen Triangle. Then the proposed algorithms based on Lanczos method is given, and the author explains why the method is successful in real-world networks. 
+
+	   Based on the fast and successful experimental results he gets, the author discovers new power laws, the Triangle Participation law and Degree-Triangle law. 
+\item {\em Use for our project}:
+	   By learning the counting of triangles in a graph, I gain better intuitive understanding of eigenvalues and eigenvectors. The paper makes me understand why some proximate algorithms could get very high accuracy, which could help me choose the testing dataset in the project. According to the exact algorithms introduces in the paper, we could choose the most fast one for grand truth of our testing.
+\item {\em Shortcomings}:
+       The author implements the algorithm in MATLAB. This does not mean that the algorithm will still working well in MapReduce. To proof the algorithm is robust in large scale using MapReduce, the author needs to do more experiment.
+\end{itemize*}

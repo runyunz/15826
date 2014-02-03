@@ -1,0 +1,370 @@
+v=(1,2)
+v<-(1,2)
+v<-(1 2)
+v<-(1;2)
+v<-1;2
+v
+v[2]
+v<-c(1,3,4,5)
+v
+v<-t(c(1,3,4,5))
+v
+getwd
+f <- read.table('~/Documents/15826/Project/Code/in_degree.txt')
+f
+plot(f)
+plot(f, main='snap')
+plot(f, main='In-degree Distribution')
+plot(f, main='In-Degree Distribution', xlab='Vertex ID', ylab='In Degree')
+plot(f, main='In-degree Distribution', xlab='Vertex ID', ylab='In-degree')
+plot(f, main='In-degree Distribution', sub='social', xlab='Vertex ID', ylab='In-degree')
+plot(f, main='Social Circle: Facebook', sub='In-degree Distribution', xlab='Vertex ID', ylab='In-degree')
+plot(f, main='Social Circle: Facebook', sub='In-degree Distribution', xlab='Nodes', ylab='In-degree')
+plot(f, main='Social Circle: Facebook', sub='In-degree Distribution', xlab='Vertex ID', ylab='In-degree')
+png('~/Documents/15826/Project/Code/in_degree.png')
+plot(f, main='Social Circle: Facebook', sub='In-degree Distribution', xlab='Vertex ID', ylab='In-degree')
+dev.off
+dev.off;
+png(filename='~/Documents/15826/Project/Code/in_degree.png')
+plot(f, main='Social Circle: Facebook', sub='In-degree Distribution', xlab='Vertex ID', ylab='In-degree')
+in_degree <- read.table('~/Documents/15826/Project/Code/in_degree.txt')
+out_degree <- read.table('~/Documents/15826/Project/Code/out_degree.txt')
+plot(out_degree, main='Social Circle: Facebook', sub='Out-degree Distribution', xlab='Vertex ID', ylab='Out-degree')
+CREATE TABLE out_degree_dist AS#
+select out_degree, count(*) from out_degree group by out_degree order by out_degree;
+in_degree <- read.table('~/Documents/15826/Project/Code/in_degree_dist.txt')
+out_degree <- read.table('~/Documents/15826/Project/Code/out_degree_dist.txt')
+plot(out_degree, main='Social Circle: Facebook', sub='Out-degree Distribution', xlab='degree', ylab='count')
+plot(in_degree, main='Social Circle: Facebook', sub='In-degree Distribution', xlab='degree', ylab='count')
+plot(out_degree, main='Social Circle: Facebook', sub='Out-degree Distribution', xlab='degree', ylab='count')
+in_degree
+test=log(in_degree)
+test
+log_indegree=log(in_degree)
+out_indegree=log(out_degree)
+plot(log_indegree, main='Social Circle: Facebook', sub='In-degree Distribution', xlab='log(degree)', ylab='log(count)')
+plot(log_indegree, main='Social Circle: Facebook', sub='In-degree Distribution', xlab='log(degree)', ylab='log(count)');
+plot(out_degree, main='Social Circle: Facebook', sub='Out-degree Distribution', xlab='degree', ylab='count')
+plot(out_indegree, main='Social Circle: Facebook', sub='Out-degree Distribution', xlab='log(degree)', ylab='log(count)')
+png("~/Documents/15826/Project/Code/out_degree.png")
+plot(out_indegree, main='Social Circle: Facebook', sub='Out-degree Distribution', xlab='log(degree)', ylab='log(count)')
+png("~/Documents/15826/Project/Code/in_degree.png")
+plot(log_indegree, main='Social Circle: Facebook', sub='In-degree Distribution', xlab='log(degree)', ylab='log(count)');
+setwd('/Users/runyunz/Documents/15826/Homework/hw3/hw3/q3/')
+X = as.matrix(read.table('ica.dat'))
+X
+[U,S,V] = svd(X);
+(U,S,V) = svd(X);
+help svd
+help(svd)
+X = as.matrix(read.table('ica.dat'));
+res = svd(X);
+res
+U=res$U;#
+S=diag(res$d);#
+V=res$V;
+S
+V3D =[,1:3];#
+X3D = X%*%V3D;
+V3D = V[,1:3];#
+X3D = X%*%V3D;
+V3D
+V3D = V[,1:3];
+V3D
+V
+V=res$v
+V
+U = res$u;
+V3D = V[,1:3];#
+X3D = X%*%V3D;
+X3D
+plot(X3D[,1:2])
+plot(X3D[,1:3])
+plot(X3D[,2:3])
+plot(X3D[,1:3])
+plot(X3D[,1:2])
+help fastICA
+help(fastICA)
+re = fastICA(X);
+library(fastICA)
+fastICA(X)
+fastICA(X,3)
+res = fastICA(X, 3);#
+#
+U = res$u;#
+S = diag(res$d);#
+V = res$v;#
+#
+V3D = V[,1:3];#
+X3D = X%*%V3D;
+res
+S=res$S
+plot(S[:,1:2])
+plot(S[,1:2])
+plot(S[,1:3])
+plot(S[,2:3])
+plot(S[,1:2], xlab='', ylab='')
+plot(S[,1:2], col='blue', xlab='', ylab='')
+plot(S[,1:2], col='blue', pch='x', xlab='', ylab='')
+plot(S[,1:3], col='blue', pch='x', xlab='', ylab='')
+plot(S[,1:2], col='blue', pch='x', xlab='', ylab='')
+plot(S[,1:3], col='blue', pch='x', xlab='', ylab='')
+plot(S[,2:3], col='blue', pch='x', xlab='', ylab='')
+plot(S[,1:3], col='blue', pch='x', xlab='', ylab='')
+plot(S[,-2], col='blue', pch='x', xlab='', ylab='')
+plot(S[,1],S[,3], col='blue', pch='x', xlab='', ylab='')
+plot(S[,1],S[,2], col='blue', pch='x', xlab='', ylab='')
+plot(S[,2], S[,3], col='blue', pch='x', xlab='', ylab='')
+plot(S[,1], S[,3], col='blue', pch='x', xlab='', ylab='')
+plot(S[,2], S[,3], col='blue', pch='x', xlab='', ylab='')
+plot(S[,1], S[,3], col='blue', pch='x', xlab='', ylab='')
+plot(S[,1],S[,2], col='blue', pch='x', xlab='', ylab='')
+ncol(X)
+ncol(X3D)
+te = cbind(1,2)
+te
+norm(te)
+dnorm(te)
+norm(te,'m')
+norm(te,'f')
+sqrt(1^2+2^2)
+for(i in 1:nrow(X))#
+{#
+	if(norm(X[i,],'f') > 1)#
+	{#
+		print(i);#
+	}#
+}
+X[1,]
+X
+norm(X[i,],'f')
+norm(as.matrix(X[i,]),'f')
+for(i in 1:nrow(X))#
+{#
+	if(as.matrix(norm(X[i,]),'f') > 1)#
+	{#
+		print(i);#
+	}#
+}
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		print(i);#
+	}#
+}
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		print(i);#
+	}#
+}
+help sort
+abs(X3D[1,])
+abs(X3D[2,])
+sort(abs(X3D[2,]))
+sort(abs(X3D[2,]), decreasing = TRUE)
+tmp = sort(abs(X3D[1,]), decreasing = FALSE);
+tmp[1]
+tmp = sort(abs(X3D[1,]), decreasing = FALSE);
+tmp
+print(tmp(1),tmp(2));
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp(2)/tmp(1);#
+		sprintf('%d\t%f\n', i, score);#
+	}#
+}#
+sprintf('sum(purity):\t%d\n', sall);
+tfor(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		sprintf('%d\t%f\n', i, score);#
+	}#
+}#
+sprintf('sum(purity):\t%d\n', sall);
+tfor(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		sprintf('%d\t%f\n', i, score);#
+	}#
+}#
+sprintf('sum(purity):\t%d\n', sall);
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		sprintf('%d\t%f\n', i, score);#
+	}#
+}#
+sprintf('sum(purity):\t%d\n', sall);
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		sprintf('%d\t%f\n', i, score);#
+		sall = sall + score;#
+	}#
+}#
+sprintf('sum(purity):\t%d\n', sall);
+sall = 0;#
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		sprintf('%d\t%f\n', i, score);#
+		sall = sall + score;#
+	}#
+}#
+sprintf('sum(purity):\t%d\n', sall);
+sall = 0;#
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		sprintf('%d\t%f\n', i, score);#
+		sall = sall + score;#
+	}#
+}#
+sprintf('sum(purity):\t%d\n', sall);
+sall = 0;#
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		sprintf('%f\t%f\n', i, score);#
+		sall = sall + score;#
+	}#
+}#
+sprintf('sum(purity):\t%f\n', sall);
+sall = 0;#
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		print(sprintf('%f\t%f\n', i, score));#
+		sall = sall + score;#
+	}#
+}#
+print(sprintf('sum(purity):\t%f\n', sall));
+sall = 0;#
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		# print(sprintf('%f\t%f\n', i, score));#
+		cat('%f\t%f\n', i, score);#
+		sall = sall + score;#
+	}#
+}#
+print(sprintf('sum(purity):\t%f\n', sall));
+sall = 0;#
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		# print(sprintf('%f\t%f\n', i, score));#
+		writeLines('%f\t%f\n', i, score);#
+		sall = sall + score;#
+	}#
+}#
+print(sprintf('sum(purity):\t%f\n', sall));
+sall = 0;#
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		writeLines(sprintf('%f\t%f\n', i, score));#
+		sall = sall + score;#
+	}#
+}#
+print(sprintf('sum(purity):\t%f\n', sall));
+sall = 0;#
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		writeLines(sprintf('%d\t%f\n', i, score));#
+		sall = sall + score;#
+	}#
+}#
+print(sprintf('sum(purity):\t%f\n', sall));
+sall = 0;#
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		writeLines(sprintf('%d\t%f\n', i, score));#
+		sall = sall + score;#
+	}#
+}#
+writeLines(sprintf('sum(purity):\t%f\n', sall));
+res
+X3D = res$S;
+sall = 0;#
+for(i in 1:nrow(X))#
+{#
+	if(norm(as.matrix(X[i,]),'f') > 1)#
+	{#
+		tmp = sort(abs(X3D[i,]), decreasing = TRUE);#
+		score = 1 - tmp[2]/tmp[1];#
+		writeLines(sprintf('%d\t%f\n', i, score));#
+		sall = sall + score;#
+	}#
+}#
+writeLines(sprintf('sum(purity):\t%f\n', sall));
+clear
+clean
+setwd("/Users/runyunz/Documents/15826/Homework/hw3/hw3/q2/")
+X=as.matrix(read.table('svd.dat'))
+X
+svd(X)
+v2d=v[1:2,]
+v2d=ans$v[1:2,]
+res=svd(X)
+v2d=res$v[1:2,]
+X %*% v2d
+size(v2d)
+v2d
+X
+X %*% v2d'
+;
+''
+X2d = X %*% t(v2d)
+X2d
+sort(X2d)
+X2d
+X2d
+X

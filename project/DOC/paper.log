@@ -1,0 +1,849 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  28 NOV 2013 13:09
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**paper.tex -recorder
+(./paper.tex
+LaTeX2e <2011/06/27>
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/preprint/fullpage.sty
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip43
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/mdwtools/mdwlist.sty
+Package: mdwlist 1996/05/02 1.1 Various list-related things
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count88
+\lst@gtempboxa=\box26
+\lst@token=\toks15
+\lst@length=\count89
+\lst@currlwidth=\dimen105
+\lst@column=\count90
+\lst@pos=\count91
+\lst@lostspace=\dimen106
+\lst@width=\dimen107
+\lst@newlines=\count92
+\lst@lineno=\count93
+\lst@maxwidth=\dimen108
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count94
+\lst@skipnumbers=\count95
+\lst@framebox=\box27
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen109
+\captionmargin@=\dimen110
+\captionwidth=\dimen111
+\caption@tempdima=\dimen112
+\caption@indent=\dimen113
+\caption@parindent=\dimen114
+\caption@hangindent=\dimen115
+)
+\c@ContinuedFloat=\count96
+Package caption Info: listings package is loaded.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+\c@subfigure=\count97
+\c@subtable=\count98
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+\c@KVtest=\count99
+\sf@farskip=\skip44
+\sf@captopadj=\dimen116
+\sf@capskip=\skip45
+\sf@nearskip=\skip46
+\sf@top=\skip47
+\sf@bottom=\skip48
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2013/01/06 v5.00 algorithms environments
+\c@AlgoLine=\count100
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+********************************************************
+Package `algorithm2e' Release 5.0 -- january 06 2013 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (cfiorio@um2.fr)
+********************************************************
+\skiptotal=\skip49
+\skiplinenumber=\skip50
+\skiprule=\skip51
+\skiphlne=\skip52
+\skiptext=\skip53
+\skiplength=\skip54
+\algomargin=\skip55
+\skipalgocfslide=\skip56
+\algowidth=\dimen117
+\inoutsize=\dimen118
+\inoutindent=\dimen119
+\interspacetitleruled=\dimen120
+\interspacealgoruled=\dimen121
+\interspacetitleboxruled=\dimen122
+\algocf@inoutbox=\box28
+\algocf@inputbox=\box29
+\AlCapSkip=\skip57
+\AlCapHSkip=\skip58
+\algoskipindent=\skip59
+\algocf@nlbox=\box30
+\algocf@hangingbox=\box31
+\algocf@untilbox=\box32
+\algocf@skipuntil=\skip60
+\algocf@capbox=\box33
+\algoheightruledefault=\skip61
+\algoheightrule=\skip62
+\algotitleheightruledefault=\skip63
+\algotitleheightrule=\skip64
+\c@algocfline=\count101
+\c@algocfproc=\count102
+\c@algocf=\count103
+\algocf@algoframe=\box34
+\algocf@algobox=\box35
+) (./paper.aux
+
+LaTeX Warning: Label `pr' multiply defined.
+
+
+LaTeX Warning: Label `cc' multiply defined.
+
+
+LaTeX Warning: Label `rd' multiply defined.
+
+
+LaTeX Warning: Label `bp' multiply defined.
+
+
+LaTeX Warning: Label `fig:results3-1' multiply defined.
+
+
+LaTeX Warning: Label `fig:dw-out' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:dw-out' multiply defined.
+
+)
+\openout1 = `paper.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+ (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count104
+\scratchdimen=\dimen123
+\scratchbox=\box36
+\nofMPsegments=\count105
+\nofMParguments=\count106
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count107
+\MPscratchDim=\dimen124
+\MPnumerator=\count108
+\makeMPintoPDFobject=\count109
+\everyMPtoPDFconversion=\toks17
+) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count110
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lemma=\count111
+\c@theorem=\count112
+\c@proof=\count113
+\c@defn=\count114
+\c@algo=\count115
+\c@observation=\count116
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 63.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 63.
+
+(./000abstract.tex) (./010intro.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 14.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
+ [1
+
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./020
+survey.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 7.
+
+Overfull \hbox (11.46613pt too wide) in paragraph at lines 27--28
+\OT1/cmr/m/n/12 vetor mul-ti-pli-ca-tion, in-clud-ing \OT1/cmr/m/it/12 de-gree 
+dis-tri-bu-tion, PageR-ank, Ran-dom Walk with Restart,
+ []
+
+[2] [3] [4]
+Overfull \hbox (7.99295pt too wide) in paragraph at lines 91--92
+[]\OT1/cmr/m/n/12 Using the GIM-V prim-i-tive, the au-thor eas-ily trans-ferred
+ the al-go-rithms to the HADOOP
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+[5]) (./030method.tex [6]
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+
+ []
+
+[7]
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no º in font cmr12!
+Missing character: There is no ç in font cmr12!
+ [8]
+Overfull \hbox (29.31215pt too wide) in paragraph at lines 89--90
+\OT1/cmr/m/n/12 Second, we com-pute the nor-mal-ized trans-posed ad-ja-cency ma
+-trix $\OML/cmm/m/it/12 A[]$ \OT1/cmr/m/n/12 us-ing UDF $\OML/cmm/m/it/12 adj[]
+matrix[]trans$\OT1/cmr/m/n/12 . 
+ []
+
+[9] [10] [11] [12]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ (./CODE/eigen.sql [13] [14])
+Overfull \hbox (23.17879pt too wide) in paragraph at lines 264--266
+\OT1/cmr/m/n/12 graph-i-cal model, such as Bayesian net-works(directed graph) a
+nd Markov ran-dom fields(undirected
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no à in font cmr12!
+Missing character: There is no í in font cmr12!
+Missing character: There is no ‚ in font cmr8!
+Missing character: There is no Ä in font cmr8!
+Missing character: There is no ≤ in font cmr8!
+
+Overfull \hbox (30.42026pt too wide) in paragraph at lines 307--307
+[]\OT1/cmtt/m/n/12 SELECT m_row, m_row as m_col, SUM(m_val) as m_val from adj_m
+atrix GROUP by m_row;[] 
+ []
+
+[15]
+Overfull \hbox (11.89525pt too wide) in paragraph at lines 307--307
+[]\OT1/cmtt/m/n/12 (SELECT m_row, m_col, $2 * m_val AS m_val FROM d_matrix)' US
+ING a, (-c_prime);[] 
+ []
+
+[16]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+
+Overfull \hbox (5.37779pt too wide) in paragraph at lines 341--341
+[]\OT1/cmr/bx/n/14.4 Innovation Tasks: Di-rected, Undi-rected, and Weighted Gra
+ph 
+ []
+
+[17]) (./040experiments.tex
+Underfull \hbox (badness 1067) in paragraph at lines 30--31
+[]\OT1/cmr/m/n/12 one node con-nected to a
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 30--31
+\OT1/cmr/m/n/12 prece-dent and a fol-lower
+ []
+
+<FIG/testcase.jpg, id=72, 1027.84pt x 770.88pt>
+File: FIG/testcase.jpg Graphic file (type jpg)
+ <use FIG/testcase.jpg>
+Package pdftex.def Info: FIG/testcase.jpg used on input line 43.
+(pdftex.def)             Requested size: 281.85585pt x 211.38687pt.
+ [18]
+[19 <./FIG/testcase.jpg>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 84.
+ [20] <FIG/in_degree.png, id=84, 481.8pt x 481.8pt>
+File: FIG/in_degree.png Graphic file (type png)
+
+<use FIG/in_degree.png>
+Package pdftex.def Info: FIG/in_degree.png used on input line 96.
+(pdftex.def)             Requested size: 234.87749pt x 234.87839pt.
+ <FIG/out_degree.png, id=86, 481.8pt x 481.8pt>
+File: FIG/out_degree.png Graphic file (type png)
+
+<use FIG/out_degree.png>
+Package pdftex.def Info: FIG/out_degree.png used on input line 97.
+(pdftex.def)             Requested size: 234.87749pt x 234.87839pt.
+
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 94--103
+ [] 
+ []
+
+<FIG/dd-google-in.png, id=87, 1278.7775pt x 632.3625pt>
+File: FIG/dd-google-in.png Graphic file (type png)
+
+<use FIG/dd-google-in.png>
+Package pdftex.def Info: FIG/dd-google-in.png used on input line 115.
+(pdftex.def)             Requested size: 422.77661pt x 209.06622pt.
+
+<FIG/dd-google-out.png, id=88, 1278.7775pt x 632.3625pt>
+File: FIG/dd-google-out.png Graphic file (type png)
+
+<use FIG/dd-google-out.png>
+Package pdftex.def Info: FIG/dd-google-out.png used on input line 122.
+(pdftex.def)             Requested size: 422.77661pt x 209.06622pt.
+
+<FIG/dd-youtube.png, id=89, 1278.7775pt x 643.40375pt>
+File: FIG/dd-youtube.png Graphic file (type png)
+
+<use FIG/dd-youtube.png>
+Package pdftex.def Info: FIG/dd-youtube.png used on input line 129.
+(pdftex.def)             Requested size: 422.77661pt x 212.71658pt.
+
+
+LaTeX Warning: Float too large for page by 66.41904pt on input line 133.
+
+
+Overfull \hbox (11.85678pt too wide) in paragraph at lines 109--134
+\OT1/cmr/m/n/12 We per-form the test on five 1M node datasets: web-Google(direc
+ted), social-Youtube, roadMap-
+ []
+
+<FIG/dd-pa.png, id=90, 1278.7775pt x 632.3625pt>
+File: FIG/dd-pa.png Graphic file (type png)
+ <use FIG/dd-pa.png>
+Package pdftex.def Info: FIG/dd-pa.png used on input line 143.
+(pdftex.def)             Requested size: 422.77661pt x 209.06622pt.
+
+<FIG/dd-ca.png, id=91, 1284.8pt x 632.3625pt>
+File: FIG/dd-ca.png Graphic file (type png)
+ <use FIG/dd-ca.png>
+Package pdftex.def Info: FIG/dd-ca.png used on input line 150.
+(pdftex.def)             Requested size: 422.77661pt x 208.08203pt.
+
+<FIG/dd-tx.png, id=92, 1284.8pt x 632.3625pt>
+File: FIG/dd-tx.png Graphic file (type png)
+ <use FIG/dd-tx.png>
+Package pdftex.def Info: FIG/dd-tx.png used on input line 157.
+(pdftex.def)             Requested size: 422.77661pt x 208.08203pt.
+
+
+LaTeX Warning: Float too large for page by 85.30028pt on input line 163.
+
+[21 <./FIG/in_degree.png> <./FIG/out_degree.png>] [22 <./FIG/dd-google-in.png (
+PNG copy)> <./FIG/dd-google-out.png (PNG copy)> <./FIG/dd-youtube.png (PNG copy
+)>] [23 <./FIG/dd-pa.png (PNG copy)> <./FIG/dd-ca.png (PNG copy)> <./FIG/dd-tx.
+png (PNG copy)>]
+Overfull \hbox (11.85678pt too wide) in paragraph at lines 202--205
+\OT1/cmr/m/n/12 We per-form the test on five 1M node datasets: web-Google(direc
+ted), social-Youtube, roadMap-
+ []
+
+[24] <FIG/pr-google.png, id=107, 1278.7775pt x 632.3625pt>
+File: FIG/pr-google.png Graphic file (type png)
+
+<use FIG/pr-google.png>
+Package pdftex.def Info: FIG/pr-google.png used on input line 209.
+(pdftex.def)             Requested size: 422.77661pt x 209.06622pt.
+ <FIG/pr-youtube.png, id=108, 1284.8pt x 643.40375pt>
+File: FIG/pr-youtube.png Graphic file (type png)
+
+<use FIG/pr-youtube.png>
+Package pdftex.def Info: FIG/pr-youtube.png used on input line 216.
+(pdftex.def)             Requested size: 422.77661pt x 211.7152pt.
+ <FIG/pr-pa.png, id=109, 1278.7775pt x 635.37375pt>
+File: FIG/pr-pa.png Graphic file (type png)
+
+<use FIG/pr-pa.png>
+Package pdftex.def Info: FIG/pr-pa.png used on input line 230.
+(pdftex.def)             Requested size: 422.77661pt x 210.06178pt.
+ <FIG/pr-ca.png, id=110, 1284.8pt x 637.38126pt>
+File: FIG/pr-ca.png Graphic file (type png)
+
+<use FIG/pr-ca.png>
+Package pdftex.def Info: FIG/pr-ca.png used on input line 237.
+(pdftex.def)             Requested size: 422.77661pt x 209.73347pt.
+ <FIG/pr-tx.png, id=111, 1278.7775pt x 635.37375pt>
+File: FIG/pr-tx.png Graphic file (type png)
+
+<use FIG/pr-tx.png>
+Package pdftex.def Info: FIG/pr-tx.png used on input line 244.
+(pdftex.def)             Requested size: 422.77661pt x 210.06178pt.
+
+
+LaTeX Warning: Float too large for page by 89.92703pt on input line 250.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--280
+
+ []
+
+[25] [26 <./FIG/pr-google.png (PNG copy)> <./FIG/pr-youtube.png (PNG copy)>]
+[27 <./FIG/pr-pa.png (PNG copy)> <./FIG/pr-ca.png (PNG copy)> <./FIG/pr-tx.png 
+(PNG copy)>] <FIG/cp-google-c.png, id=122, 1284.8pt x 632.3625pt>
+File: FIG/cp-google-c.png Graphic file (type png)
+
+<use FIG/cp-google-c.png>
+Package pdftex.def Info: FIG/cp-google-c.png used on input line 349.
+(pdftex.def)             Requested size: 375.80542pt x 184.96288pt.
+
+<FIG/cp-youtube-c.png, id=123, 1284.8pt x 632.3625pt>
+File: FIG/cp-youtube-c.png Graphic file (type png)
+
+<use FIG/cp-youtube-c.png>
+Package pdftex.def Info: FIG/cp-youtube-c.png used on input line 356.
+(pdftex.def)             Requested size: 375.80542pt x 184.96288pt.
+ <FIG/cp-pa-c.png, id=124, 1284.8pt x 635.37375pt>
+File: FIG/cp-pa-c.png Graphic file (type png)
+
+<use FIG/cp-pa-c.png>
+Package pdftex.def Info: FIG/cp-pa-c.png used on input line 363.
+(pdftex.def)             Requested size: 375.80542pt x 185.84364pt.
+
+
+LaTeX Warning: Float too large for page by 15.83939pt on input line 369.
+
+
+Overfull \hbox (11.85678pt too wide) in paragraph at lines 342--370
+\OT1/cmr/m/n/12 We per-form the test on five 1M node datasets: web-Google(direc
+ted), social-Youtube, roadMap-
+ []
+
+[28] <FIG/cp-google.png, id=128, 1278.7775pt x 632.3625pt>
+File: FIG/cp-google.png Graphic file (type png)
+
+<use FIG/cp-google.png>
+Package pdftex.def Info: FIG/cp-google.png used on input line 376.
+(pdftex.def)             Requested size: 375.80542pt x 185.84094pt.
+ <FIG/cp-pa-20.png, id=129, 1278.7775pt x 635.37375pt>
+File: FIG/cp-pa-20.png Graphic file (type png)
+
+<use FIG/cp-pa-20.png>
+Package pdftex.def Info: FIG/cp-pa-20.png used on input line 383.
+(pdftex.def)             Requested size: 375.80542pt x 186.72589pt.
+ <FIG/cp-pa.png, id=130, 1284.8pt x 635.37375pt>
+File: FIG/cp-pa.png Graphic file (type png)
+
+<use FIG/cp-pa.png>
+Package pdftex.def Info: FIG/cp-pa.png used on input line 390.
+(pdftex.def)             Requested size: 375.80542pt x 185.84364pt.
+ <FIG/cp-ca.png, id=131, 1278.7775pt x 635.37375pt>
+File: FIG/cp-ca.png Graphic file (type png)
+
+<use FIG/cp-ca.png>
+Package pdftex.def Info: FIG/cp-ca.png used on input line 404.
+(pdftex.def)             Requested size: 375.80542pt x 186.72589pt.
+ <FIG/cp-tx.png, id=132, 1278.7775pt x 635.37375pt>
+File: FIG/cp-tx.png Graphic file (type png)
+
+<use FIG/cp-tx.png>
+Package pdftex.def Info: FIG/cp-tx.png used on input line 411.
+(pdftex.def)             Requested size: 375.80542pt x 186.72589pt.
+ <FIG/task4.png, id=133, 1027.84pt x 770.88pt>
+File: FIG/task4.png Graphic file (type png)
+
+<use FIG/task4.png>
+Package pdftex.def Info: FIG/task4.png used on input line 445.
+(pdftex.def)             Requested size: 281.85585pt x 211.38687pt.
+ <FIG/rd-google.png, id=134, 1278.7775pt x 635.37375pt>
+File: FIG/rd-google.png Graphic file (type png)
+
+<use FIG/rd-google.png>
+Package pdftex.def Info: FIG/rd-google.png used on input line 463.
+(pdftex.def)             Requested size: 375.80542pt x 186.72589pt.
+ <FIG/rd-youtube.png, id=135, 1284.8pt x 632.3625pt>
+File: FIG/rd-youtube.png Graphic file (type png)
+
+<use FIG/rd-youtube.png>
+Package pdftex.def Info: FIG/rd-youtube.png used on input line 470.
+(pdftex.def)             Requested size: 375.80542pt x 184.96288pt.
+ <FIG/tab.png, id=136, 628.3475pt x 336.25626pt>
+File: FIG/tab.png Graphic file (type png)
+
+<use FIG/tab.png>
+Package pdftex.def Info: FIG/tab.png used on input line 489.
+(pdftex.def)             Requested size: 375.80542pt x 201.10881pt.
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [29] [30 <./FIG/cp-google-c.png (PNG copy)> <./FIG/cp-youtube-c.png (PNG copy)
+> <./FIG/cp-pa-c.png (PNG copy)>] [31 <./FIG/cp-google.png (PNG copy)> <./FIG/c
+p-pa-20.png (PNG copy)> <./FIG/cp-pa.png (PNG copy)>] [32 <./FIG/cp-ca.png (PNG
+ copy)> <./FIG/cp-tx.png (PNG copy)>]
+<FIG/task5.jpg, id=150, 562.1pt x 421.575pt>
+File: FIG/task5.jpg Graphic file (type jpg)
+ <use FIG/task5.jpg>
+Package pdftex.def Info: FIG/task5.jpg used on input line 507.
+(pdftex.def)             Requested size: 375.80542pt x 281.85553pt.
+
+<FIG/ei-youtube.png, id=151, 421.575pt x 316.18124pt>
+File: FIG/ei-youtube.png Graphic file (type png)
+ <use FIG/ei-youtube.png>
+Package pdftex.def Info: FIG/ei-youtube.png used on input line 522.
+(pdftex.def)             Requested size: 281.85585pt x 211.39647pt.
+
+<FIG/ei-pa.png, id=152, 421.575pt x 316.18124pt>
+File: FIG/ei-pa.png Graphic file (type png)
+ <use FIG/ei-pa.png>
+Package pdftex.def Info: FIG/ei-pa.png used on input line 529.
+(pdftex.def)             Requested size: 281.85585pt x 211.39647pt.
+
+<FIG/ei-ca.png, id=153, 421.575pt x 316.18124pt>
+File: FIG/ei-ca.png Graphic file (type png)
+ <use FIG/ei-ca.png>
+Package pdftex.def Info: FIG/ei-ca.png used on input line 536.
+(pdftex.def)             Requested size: 281.85585pt x 211.39647pt.
+
+
+LaTeX Warning: Float too large for page by 94.2594pt on input line 542.
+
+
+Overfull \hbox (7.55414pt too wide) in paragraph at lines 518--543
+\OT1/cmr/m/n/12 We per-form the test on sev-eral 1M nodes datasets: social-Yout
+ube, roadMap-PA and roadMap-
+ []
+
+[33 <./FIG/task4.png>] [34 <./FIG/rd-google.png (PNG copy)> <./FIG/rd-youtube.p
+ng (PNG copy)>] [35 <./FIG/tab.png>]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [36 <./FIG/task5.jpg>] [37 <./FIG/ei-youtube.png (PNG copy)> <./FIG/ei-pa.png 
+(PNG copy)> <./FIG/ei-ca.png (PNG copy)>]
+<FIG/task6.png, id=171, 1027.84pt x 770.88pt>
+File: FIG/task6.png Graphic file (type png)
+ <use FIG/task6.png>
+Package pdftex.def Info: FIG/task6.png used on input line 597.
+(pdftex.def)             Requested size: 281.85585pt x 211.38687pt.
+
+Overfull \hbox (11.85678pt too wide) in paragraph at lines 608--611
+\OT1/cmr/m/n/12 We per-form the test on five 1M node datasets: web-Google(direc
+ted), social-Youtube, roadMap-
+ []
+
+[38 <./FIG/task6.png>] <FIG/bp-google.png, id=176, 1278.7775pt x 632.3625pt>
+File: FIG/bp-google.png Graphic file (type png)
+
+<use FIG/bp-google.png>
+Package pdftex.def Info: FIG/bp-google.png used on input line 615.
+(pdftex.def)             Requested size: 422.77661pt x 209.06622pt.
+
+<FIG/bp-youtube.png, id=177, 1278.7775pt x 635.37375pt>
+File: FIG/bp-youtube.png Graphic file (type png)
+
+<use FIG/bp-youtube.png>
+Package pdftex.def Info: FIG/bp-youtube.png used on input line 622.
+(pdftex.def)             Requested size: 422.77661pt x 210.06178pt.
+ <FIG/bp-pa.png, id=178, 1278.7775pt x 632.3625pt>
+File: FIG/bp-pa.png Graphic file (type png)
+
+<use FIG/bp-pa.png>
+Package pdftex.def Info: FIG/bp-pa.png used on input line 636.
+(pdftex.def)             Requested size: 422.77661pt x 209.06622pt.
+ <FIG/bp-ca.png, id=179, 1284.8pt x 635.37375pt>
+File: FIG/bp-ca.png Graphic file (type png)
+
+<use FIG/bp-ca.png>
+Package pdftex.def Info: FIG/bp-ca.png used on input line 643.
+(pdftex.def)             Requested size: 422.77661pt x 209.07289pt.
+ <FIG/bp-tx.png, id=180, 1278.7775pt x 632.3625pt>
+File: FIG/bp-tx.png Graphic file (type png)
+
+<use FIG/bp-tx.png>
+Package pdftex.def Info: FIG/bp-tx.png used on input line 650.
+(pdftex.def)             Requested size: 422.77661pt x 209.06622pt.
+
+
+LaTeX Warning: Float too large for page by 87.27533pt on input line 656.
+
+<FIG/my_youtube_triangle.png, id=181, 421.575pt x 316.18124pt>
+File: FIG/my_youtube_triangle.png Graphic file (type png)
+
+<use FIG/my_youtube_triangle.png>
+Package pdftex.def Info: FIG/my_youtube_triangle.png used on input line 672.
+(pdftex.def)             Requested size: 375.80542pt x 281.85875pt.
+
+<FIG/matlab_youtube_triangle.png, id=182, 421.575pt x 316.18124pt>
+File: FIG/matlab_youtube_triangle.png Graphic file (type png)
+
+<use FIG/matlab_youtube_triangle.png>
+Package pdftex.def Info: FIG/matlab_youtube_triangle.png used on input line 679
+.
+(pdftex.def)             Requested size: 375.80542pt x 281.85875pt.
+
+
+LaTeX Warning: Float too large for page by 4.78749pt on input line 685.
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+<FIG/dw_ind.png, id=183, 1284.8pt x 635.37375pt>
+File: FIG/dw_ind.png Graphic file (type png)
+ <use FIG/dw_ind.png>
+Package pdftex.def Info: FIG/dw_ind.png used on input line 700.
+(pdftex.def)             Requested size: 281.85585pt x 139.38516pt.
+
+<FIG/dw_outd.png, id=184, 1284.8pt x 632.3625pt>
+File: FIG/dw_outd.png Graphic file (type png)
+ <use FIG/dw_outd.png>
+Package pdftex.def Info: FIG/dw_outd.png used on input line 707.
+(pdftex.def)             Requested size: 281.85585pt x 138.72456pt.
+
+<FIG/dw_inw.png, id=185, 1284.8pt x 632.3625pt>
+File: FIG/dw_inw.png Graphic file (type png)
+ <use FIG/dw_inw.png>
+Package pdftex.def Info: FIG/dw_inw.png used on input line 714.
+(pdftex.def)             Requested size: 281.85585pt x 138.72456pt.
+
+<FIG/dw_outw.png, id=186, 1284.8pt x 632.3625pt>
+File: FIG/dw_outw.png Graphic file (type png)
+ <use FIG/dw_outw.png>
+Package pdftex.def Info: FIG/dw_outw.png used on input line 721.
+(pdftex.def)             Requested size: 281.85585pt x 138.72456pt.
+
+
+LaTeX Warning: Float too large for page by 34.62885pt on input line 727.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 692--729
+
+ []
+
+<FIG/dw_in.png, id=187, 1284.8pt x 635.37375pt>
+File: FIG/dw_in.png Graphic file (type png)
+ <use FIG/dw_in.png>
+Package pdftex.def Info: FIG/dw_in.png used on input line 733.
+(pdftex.def)             Requested size: 375.80542pt x 185.84364pt.
+
+<FIG/dw_out.png, id=188, 1284.8pt x 632.3625pt>
+File: FIG/dw_out.png Graphic file (type png)
+ <use FIG/dw_out.png>
+Package pdftex.def Info: FIG/dw_out.png used on input line 740.
+(pdftex.def)             Requested size: 375.80542pt x 184.96288pt.
+
+<FIG/dw_pr.png, id=189, 1284.8pt x 632.3625pt>
+File: FIG/dw_pr.png Graphic file (type png)
+ <use FIG/dw_pr.png>
+Package pdftex.def Info: FIG/dw_pr.png used on input line 752.
+(pdftex.def)             Requested size: 375.80542pt x 184.96288pt.
+
+<FIG/pr.png, id=190, 1284.8pt x 632.3625pt>
+File: FIG/pr.png Graphic file (type png)
+ <use FIG/pr.png>
+Package pdftex.def Info: FIG/pr.png used on input line 759.
+(pdftex.def)             Requested size: 375.80542pt x 184.96288pt.
+)
+(./050conclusions.tex [39] [40 <./FIG/bp-google.png (PNG copy)> <./FIG/bp-youtu
+be.png (PNG copy)>] [41 <./FIG/bp-pa.png (PNG copy)> <./FIG/bp-ca.png (PNG copy
+)> <./FIG/bp-tx.png (PNG copy)>] [42 <./FIG/my_youtube_triangle.png (PNG copy)>
+ <./FIG/matlab_youtube_triangle.png (PNG copy)>] [43 <./FIG/dw_ind.png (PNG cop
+y)> <./FIG/dw_outd.png (PNG copy)> <./FIG/dw_inw.png (PNG copy)> <./FIG/dw_outw
+.png (PNG copy)>] [44 <./FIG/dw_in.png (PNG copy)> <./FIG/dw_out.png (PNG copy)
+>] [45 <./FIG/dw_pr.png (PNG copy)> <./FIG/pr.png (PNG copy)>]) (./paper.bbl
+[46]) [47] (./099appendix.tex
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [48]) [49] (./paper.toc [1])
+\tf@toc=\write3
+\openout3 = `paper.toc'.
+
+ [2] (./paper.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 6152 strings out of 493315
+ 92896 string characters out of 6137904
+ 276751 words of memory out of 5000000
+ 9475 multiletter control sequences out of 15000+600000
+ 11996 words of font info for 42 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 38i,15n,42p,677b,1511s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
+usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
+l/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/
+texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
+live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texliv
+e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2
+013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
+13/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2013
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2013/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2013/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on paper.pdf (51 pages, 1159890 bytes).
+PDF statistics:
+ 289 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 231 words of extra memory for PDF output out of 10000 (max. 10000000)
+

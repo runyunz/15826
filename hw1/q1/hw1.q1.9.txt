@@ -1,0 +1,2 @@
+explain select productID from movies where time > 100 order by score limit 5;
+explain query plan select productID from movies where time > 100 order by score limit 5;

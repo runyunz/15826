@@ -1,0 +1,60 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Survey}{2}
+\contentsline {subsection}{\numberline {2.1}Papers read by Emma Zhang}{2}
+\contentsline {subsection}{\numberline {2.2}Papers read by Fangyu Gao}{4}
+\contentsline {section}{\numberline {3}Proposed Method}{6}
+\contentsline {subsection}{\numberline {3.1}Task List}{6}
+\contentsline {subsection}{\numberline {3.2}Implementation Choice}{7}
+\contentsline {subsection}{\numberline {3.3}Basic Operation}{7}
+\contentsline {subsection}{\numberline {3.4}Task 1: Degree Distribution}{8}
+\contentsline {subsubsection}{\numberline {3.4.1}Method Description}{8}
+\contentsline {subsubsection}{\numberline {3.4.2}SQL Implementation}{8}
+\contentsline {subsection}{\numberline {3.5}Task 2: PageRank}{8}
+\contentsline {subsubsection}{\numberline {3.5.1}Method Description}{8}
+\contentsline {subsubsection}{\numberline {3.5.2}SQL Implementation}{9}
+\contentsline {subsection}{\numberline {3.6}Task 3: Connected Component}{10}
+\contentsline {subsubsection}{\numberline {3.6.1}Method Description}{10}
+\contentsline {subsubsection}{\numberline {3.6.2}SQL Implementation}{10}
+\contentsline {subsection}{\numberline {3.7}Task 4: Radius}{11}
+\contentsline {subsubsection}{\numberline {3.7.1}Method Description}{11}
+\contentsline {subsubsection}{\numberline {3.7.2}SQL Implementation}{12}
+\contentsline {subsection}{\numberline {3.8}Task 5: Eigenvalues}{13}
+\contentsline {subsubsection}{\numberline {3.8.1}Method Description}{13}
+\contentsline {subsubsection}{\numberline {3.8.2}SQL Implementation}{13}
+\contentsline {subsection}{\numberline {3.9}Task 6: Belief Propagation}{15}
+\contentsline {subsubsection}{\numberline {3.9.1}Method Description}{15}
+\contentsline {subsubsection}{\numberline {3.9.2}SQL Implementation}{16}
+\contentsline {subsection}{\numberline {3.10}Task 7: Count of Triangles}{17}
+\contentsline {subsubsection}{\numberline {3.10.1}Method Description}{17}
+\contentsline {subsubsection}{\numberline {3.10.2}SQL Implementation}{17}
+\contentsline {subsection}{\numberline {3.11}Innovation Tasks: Directed, Undirected, and Weighted Graph}{17}
+\contentsline {section}{\numberline {4}Experiments}{18}
+\contentsline {subsection}{\numberline {4.1}Dataset}{18}
+\contentsline {subsection}{\numberline {4.2}Task 1: Degree Distribution}{19}
+\contentsline {subsubsection}{\numberline {4.2.1}Accuracy Demonstration}{19}
+\contentsline {subsubsection}{\numberline {4.2.2}Variety Demonstration}{21}
+\contentsline {subsection}{\numberline {4.3}Task 2: Page Rank}{24}
+\contentsline {subsubsection}{\numberline {4.3.1}Accuracy Demonstration}{24}
+\contentsline {subsubsection}{\numberline {4.3.2}Variety Demonstration}{24}
+\contentsline {subsection}{\numberline {4.4}Task 3: Connected Components}{25}
+\contentsline {subsubsection}{\numberline {4.4.1}Accuracy Demonstration}{25}
+\contentsline {subsubsection}{\numberline {4.4.2}Variety Demonstration}{28}
+\contentsline {subsection}{\numberline {4.5}Task 4: Radius}{29}
+\contentsline {subsubsection}{\numberline {4.5.1}Accuracy Demonstration}{29}
+\contentsline {subsubsection}{\numberline {4.5.2}Variety Demonstration}{29}
+\contentsline {subsection}{\numberline {4.6}Task 5: Eigenvalues}{33}
+\contentsline {subsubsection}{\numberline {4.6.1}Varienty Demonstration}{35}
+\contentsline {subsection}{\numberline {4.7}Task 6: Belief Propagation}{35}
+\contentsline {subsubsection}{\numberline {4.7.1}Accuracy Demonstration}{35}
+\contentsline {subsubsection}{\numberline {4.7.2}Varienty Demonstration}{38}
+\contentsline {subsection}{\numberline {4.8}Task 7: Count of Triangles}{39}
+\contentsline {subsubsection}{\numberline {4.8.1}Accuracy Demonstration}{39}
+\contentsline {subsubsection}{\numberline {4.8.2}Variety Demonstration}{39}
+\contentsline {subsection}{\numberline {4.9}Task 8: Innovation Task}{39}
+\contentsline {section}{\numberline {5}Conclusions}{46}
+\contentsline {section}{\numberline {A}Appendix}{48}
+\contentsline {subsection}{\numberline {A.1}Labor Division}{48}
+\contentsline {subsection}{\numberline {A.2}Full disclosure wrt dissertations/projects}{48}
+\contentsline {paragraph}{Emma Zhang:}{48}
+\contentsline {paragraph}{Fangyu Gao:}{48}
+\contentsline {subsection}{\numberline {A.3}Code Description}{49}

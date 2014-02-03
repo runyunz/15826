@@ -1,0 +1,10 @@
+%s1
+plot(y);
+
+yf=fft(y);
+yf_abs=abs(yf);
+plot(yf_abs); %not able to detect any major periodicities
+
+%s2
+[C,L] = wavedec(y, 12);
+plot(C);

@@ -1,0 +1,1 @@
+select count(distinct productID) from movies;

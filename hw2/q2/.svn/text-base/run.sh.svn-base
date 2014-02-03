@@ -1,0 +1,29 @@
+echo "Running FDNQ on dataset 0"
+#add call to FDNQ here. Say the output of the code is 'dataset0.dat.points'
+
+echo "Plotting correlation integral for dataset 0"
+echo "set term png; set logscale x; set logscale y; set output'dataset0.png'; plot 'dataset0.dat.points' with linespoints" | gnuplot 
+
+echo "Running FDNQ on dataset 1"
+#add call to FDNQ here.
+
+echo "Plotting correlation integral for dataset 1"
+echo "set term png; set logscale x; set logscale y; set output'dataset1.png'; plot 'dataset1.dat.points' with linespoints" | gnuplot 
+
+echo "Running FDNQ on dataset 2"
+#add call to FDNQ here.
+
+echo "Plotting correlation integral for dataset 2"
+echo "set term png; set logscale x; set logscale y; set output'dataset2.png'; plot 'dataset2.dat.points' with linespoints" | gnuplot 
+
+echo "Running FDNQ on dataset 3"
+#add call to FDNQ here.
+
+echo "Plotting correlation integral for dataset 3"
+echo "set term png; set logscale x; set logscale y; set output'dataset3.png'; plot 'dataset3.dat.points' with linespoints" | gnuplot 
+
+echo "Running FDNQ on dataset 4"
+#add call to FDNQ here.
+
+echo "Plotting correlation integral for dataset 4"
+echo "set term png; set logscale x; set logscale y; set output 'dataset4.png'; plot 'dataset4.dat.points' with linespoints" | gnuplot 

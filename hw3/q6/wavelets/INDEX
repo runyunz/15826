@@ -1,0 +1,34 @@
+align                   Align Wavelet Transform Coefficients
+dwt                     Discrete Wavelet Transform
+dwt-class               Discrete Wavelet Transform Object
+dwt.forward             Discrete Wavelet Transform and Maximal Overlap
+                        Discrete Wavelet Tranform Forward and Backward
+                        Pyramid Algorithm
+ecg                     Electrocardiogram Data
+extend.series           Extend a Time Series
+figure108.wt.filter     Plot Multiple DWT Wavelet or Scaling Filters
+figure98.wt.filter      Plot a DWT Wavelet or Scaling Filter for
+                        Specific Levels.
+idwt                    Inverse Discrete Wavelet Transform
+imodwt                  Inverse Maximal Overlap Discrete Wavelet
+                        Transform
+modwt                   Maximal Overlap Discrete Wavelet Transform
+modwt-class             Maximal Overlap Discrete Wavelet Transform
+                        Object
+mra                     Multiresolution Analysis
+mra-class               Multiresolution Analysis Object
+nile                    Yearly Nile River Minima
+ocean                   Vertical Ocean Sheer Measurements
+plot.dwt                Plot DWT Coefficients
+plot.dwt.multiple       Plot Multiple DWT Objects
+plot.modwt              Plot MODWT Coefficients
+scalingshift.dwt        Find Circular Shift of DWT Scaling Coefficients
+squaredgain.wt.filter   Plot Squared Gain Function for Wavelet Filter
+stackplot               Stacked Plotting
+subtidal                Subtidal Sea Level Measurements
+waveletshift.dwt        Find Circular Shift of DWT Wavelet Coefficients
+wt.filter               Wavelet Transform Filter
+wt.filter-class         Wavelet Transform Filter Object
+wt.filter.equivalent    Equivalent Wavelet Transform Filter
+wt.filter.qmf           Quadrature Mirror Filter
+wt.filter.shift         Wavelet Transform Filter Phase Shift

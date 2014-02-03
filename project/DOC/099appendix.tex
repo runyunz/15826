@@ -1,0 +1,76 @@
+
+\subsection{Labor Division}
+
+The team performed the following tasks:
+\bit
+\item Implementation of degree distribution [Emma, Fangyu]
+\item Implementation of PageRank [Emma, Fangyu]
+\item Implementation of (weakly) connected components [Emma, Fangyu]
+\item Implementation of radius and diameter query [Emma]
+\item Implementation of eigenvalues/singular values [Fangyu]
+\item Implementation of Belief Propagation [Emma]
+\item Implementation of Count of Triangles [Fangyu]
+\item Experiments on the real data (Broad-spectrum graph mining) [Emma, Fangyu]
+\item Innovation tasks [Emma, Fangyu]
+\eit
+
+A tentative progress plan for Emma Zhang:
+\bit
+\item by 10/10: Implementation of degree distribution [Done]
+\item by 10/10: Implementation of PageRank [Done]
+\item by 10/10: Implementation of (weakly) connected components [Done]
+\item by 10/24: Implementation of radius and diameter query [Done]
+\item by 10/24: Implementation of Belief Propagation [Done]
+\item by 11/01: Broad-spectrum graph mining(phase 1) [Done]
+\item by 11/07: Innovation task proposal [Done]
+\item by 11/07: Progress Report Writing [Done]
+\item by 11/21: Implementation of Innovation task [Done]
+\item by 11/21: Broad-spectrum graph mining(phase 2) [Done]
+\item by 11/26: Code Packaging and Final Report Writing [Done]
+\eit
+
+A tentative progress plan for Fangyu Gao:
+\bit
+\item 10/12-10/22: implement HEigen algorithm [Done]
+\item 10/23-10/25: implement counting triangles algorithm [Done]
+\item 10/26-11/01: implement counting triangles algorithm [Done]
+\item 11/02-11/07: write progress report [Done]
+\item 11/08-11/19: implement innovation projects [Done]
+\item 11/20-11/26: Package code and write final report [Done]
+\eit
+
+\subsection{Full disclosure wrt dissertations/projects}
+
+\paragraph{Emma Zhang:}
+She is not doing any project or dissertation related to this project.
+\paragraph{Fangyu Gao:} 
+He is not doing any project or dissertation related to this project.
+
+\subsection{Code Description}
+One thing we insist on during our processing is the making the code we write to a software that is robustness and easy to use. \\
+Therefore, we write functions using PL/pgSQL that defaultly comes with PostgresSQL. We break the tasks in our project into small pieces and write them in separate functions. This guarantee the reusable and readability of our software.\\
+We use table name as input and output parameters when passing tables, this makes our codes easy to understand and convenient to use.
+For example, the function “matrix\_multiply\_matrix” is in the following format:
+
+matrix\_by\_matrix(dst\_matrix\_name, left\_matrix\_name, right\_matrix\_name) return void \\
+If we want to calculate $A * B$ and put the result into C, that is $C = A * B$ we can use the statement:
+
+
+matrix\_by\_matrix(C, A, B)\\
+where A, B, C are the names of the three matrices. We always put the name of the return table in the first parameter of a function. This makes our software follow the usual coding style that output comes first(e.g. $C = A * B$). And by following this style, we make our functions easy to remember and convenient to use.\\
+Table \ref{tab:func} lists the important functions we wrote have writen by now.
+
+\begin{table}[htbf]
+\begin{center} 
+\begin{tabular}{|l | c | } \hline \hline 
+Function name & Description \\ \hline
+void matrix\_by\_matrix(A, B, C) & $A = B * C$ \\
+void matrix\_by\_vector(a, A, b) & $a = A * b$ \\
+void matrix\_transpose(A, B) & $A = B^T$ \\
+double vector\_by\_vector(a, b) & $a^T * b$ \\
+void vector\_scale(a, b, lambda) & $a = lambda * b$ \\ \hline
+\end{tabular} 
+\end{center} 
+\caption{Basic Functions}
+\label{tab:func} 
+ \end{table}

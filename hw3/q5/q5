@@ -1,0 +1,32 @@
+%s1 n=3177
+plot(Xt);
+
+%s2
+Xf=fft(Xt);
+Xf_abs=abs(Xf);
+plot(Xf_abs);
+
+%s3 
+% n=3177, 0 > 24 = 3153 
+[res,idx]=sort(Xf_abs, 'descend'); %peak detection
+period = abs((idx(2)-1)-(idx(3)-1))/12 %260.75
+
+%s4 n=3177
+plot(y);
+
+yf=fft(y);
+yf_abs=abs(yf);
+plot(yf_abs); %no frequency stands out
+
+%s5 n=3177, 1 > 76 = 3101
+plot(ym);
+
+ymf=fft(ym);
+ymf_abs=abs(ymf);
+plot(ymf_abs); % frequency stands out
+
+[res,idx]=sort(ymf_abs, 'descend');
+f = idx(2)-1 % 77 or 76? record n-f or not?
+
+%s6
+%?

@@ -1,0 +1,7 @@
+tensor=dlmread('tensor.dat','\t')
+T = sptensor(tensor(:,1:3), tensor(:,4));
+
+D = cp_als(T, 2)
+
+
+echo "dlmread('tensor.dat','\t'); T = sptensor(tensor); D = cp_als(T, 2)" | matlab > D.res

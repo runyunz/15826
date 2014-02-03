@@ -1,0 +1,9 @@
+num. dimensions = 2
+nn searching ...
+# of neighbors= 0-th attr. value= 1-th attr. value=    nn searching - query point: 0.5	0.5	
+#1 nearest neighbor: 0.500539	0.50159	
+nn searching ...
+# of neighbors= 0-th attr. value= 1-th attr. value=    nn searching - query point: 1	1	
+#1 nearest neighbor: 0.999869	1.00005	
+illegal command: |0| 
+illegal command: |0| 
